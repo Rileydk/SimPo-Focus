@@ -15,12 +15,13 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     
     // Task TextField
-    let taskTextField = UITextField(frame: CGRect(x: 20, y: 50, width: 500, height: 60))
+    let taskTextField = UITextField(frame: CGRect(x: 0, y: 30, width: 500, height: 60))
     taskTextField.placeholder = "What's your major task now?"
     taskTextField.textColor = UIColor.darkGray
     taskTextField.font = UIFont.boldSystemFont(ofSize: 24)
     taskTextField.adjustsFontSizeToFitWidth = true
     taskTextField.minimumFontSize = 20
+    taskTextField.textAlignment = .center
     self.view.addSubview(taskTextField)
     
     // Start countdown
