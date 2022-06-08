@@ -14,10 +14,19 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // Task TextField
+    let taskTextField = UITextField(frame: CGRect(x: 20, y: 50, width: 500, height: 60))
+    taskTextField.placeholder = "What's your major task now?"
+    taskTextField.textColor = UIColor.darkGray
+    taskTextField.font = UIFont.boldSystemFont(ofSize: 24)
+    taskTextField.adjustsFontSizeToFitWidth = true
+    taskTextField.minimumFontSize = 20
+    self.view.addSubview(taskTextField)
+    
     // Start countdown
     timeBrain.min = 1
     timeBrain.sec = 15
-    timer()
+    // timer()
   }
   
   func timer() {
