@@ -11,4 +11,20 @@ struct TimeBrain {
   var min = 0
   var sec = 0
   var totalSec: Int { self.min * 60 + self.sec }
+  
+  func timer() {
+    var secLeft = totalSec
+    
+    print("Set timer from \(min) minutes \(sec) seconds.")
+    
+    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { Timer in
+      if secLeft > 0 {
+        print("\(secLeft / 60) minutes \(secLeft % 60) left")
+        secLeft -= 1
+      } else {
+        print("End countdown")
+        Timer.invalidate()
+      }
+    }
+  }
 }

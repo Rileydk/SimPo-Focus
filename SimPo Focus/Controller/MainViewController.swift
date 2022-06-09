@@ -9,46 +9,47 @@ import UIKit
 
 class MainViewController: UIViewController {
   
-  let taskTextField = UITextField(frame: CGRect(x: 10, y: 320, width: 300, height: 30))
+  let taskTextField = UITextField(frame: CGRect(x: 10, y: 100, width: 400, height: 30))
   
   var timeBrain = TimeBrain()
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    /// Delegate
+    taskTextField.delegate = self
+    
     view.translatesAutoresizingMaskIntoConstraints = false
     
     /// Display View
-    taskTextField.placeholder = "Edit your major task"
+    taskTextField.placeholder = "What's Your Major Task?"
     taskTextField.borderStyle = .none
     taskTextField.backgroundColor = .none
     taskTextField.textColor = UIColor.darkGray
     taskTextField.font = UIFont.boldSystemFont(ofSize: 24)
     // taskTextField.adjustsFontSizeToFitWidth = true
     // taskTextField.minimumFontSize = 20
+    taskTextField.clearButtonMode = .whileEditing
     self.view.addSubview(taskTextField)
     
     /// Start countdown
     timeBrain.min = 1
     timeBrain.sec = 15
-    // timer()
-  }
-  
-  func timer() {
-    var secLeft = timeBrain.totalSec
-    
-    print("Set timer from \(timeBrain.min) minutes \(timeBrain.sec) seconds.")
-    
-    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { Timer in
-      if secLeft > 0 {
-        print("\(secLeft / 60) minutes \(secLeft % 60) left")
-        secLeft -= 1
-      } else {
-        print("End countdown")
-        Timer.invalidate()
-      }
-    }
+    // timeBrain.timer()
   }
 
 }
 
+//MARK: - UITextField Delegate
+extension MainViewController: UITextFieldDelegate {
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    view.endEditing(true)
+  }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    taskTextField.resignFirstResponder()
+    return true
+  }
+  
+}
