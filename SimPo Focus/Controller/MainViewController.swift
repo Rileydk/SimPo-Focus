@@ -13,13 +13,14 @@ class MainViewController: UIViewController {
     let textField = UITextField(frame: CGRect(x: 10, y: 100, width: 400, height: 30))
     textField.translatesAutoresizingMaskIntoConstraints = false
     textField.placeholder = "What's Your Major Task?"
-    textField.borderStyle = .none
+    textField.borderStyle = .line
     textField.backgroundColor = .none
     textField.textColor = .darkGray
+    textField.textAlignment = .center
     textField.font = .boldSystemFont(ofSize: 24)
     textField.adjustsFontSizeToFitWidth = true
     textField.minimumFontSize = 20
-    textField.clearButtonMode = .whileEditing
+    textField.clearButtonMode = .whileEditing // 為什麼結束editing後，clear button消失，欄位卻不會回復？
     
     return textField
   }()
@@ -34,11 +35,20 @@ class MainViewController: UIViewController {
     
     /// Display View
     view.addSubview(taskTextField)
+    configureConstraints()
     
     /// Start countdown
     timeBrain.min = 0
     timeBrain.sec = 0
     timeBrain.timer()
+  }
+  
+  func configureConstraints() {
+    NSLayoutConstraint.activate([
+      /// TaskTextField
+      taskTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      taskTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+    ])
   }
 
 }
