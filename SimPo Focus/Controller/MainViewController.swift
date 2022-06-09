@@ -19,9 +19,11 @@ class MainViewController: UIViewController {
     /// Delegate
     taskTextField.delegate = self
     
+    /// Display View
+    // Avoid conflict with constaints
     view.translatesAutoresizingMaskIntoConstraints = false
     
-    /// Display View
+    // taskTextField
     taskTextField.placeholder = "What's Your Major Task?"
     taskTextField.borderStyle = .none
     taskTextField.backgroundColor = .none
@@ -33,9 +35,9 @@ class MainViewController: UIViewController {
     self.view.addSubview(taskTextField)
     
     /// Start countdown
-    timeBrain.min = 1
-    timeBrain.sec = 15
-    // timeBrain.timer()
+    timeBrain.min = 0
+    timeBrain.sec = 0
+    timeBrain.timer()
   }
 
 }
