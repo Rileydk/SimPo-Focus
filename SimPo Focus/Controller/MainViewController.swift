@@ -9,33 +9,18 @@ import UIKit
 
 class MainViewController: UIViewController {
   
-  let taskTextField: UITextField = {
-    let textField = UITextField(frame: CGRect(x: 10, y: 100, width: 400, height: 30))
-    textField.translatesAutoresizingMaskIntoConstraints = false
-    textField.placeholder = "What's Your Major Task?"
-    textField.borderStyle = .line
-    textField.backgroundColor = .none
-    textField.textColor = .darkGray
-    textField.textAlignment = .center
-    textField.font = .boldSystemFont(ofSize: 24)
-    textField.adjustsFontSizeToFitWidth = true
-    textField.minimumFontSize = 20
-    textField.clearButtonMode = .whileEditing // 為什麼結束editing後，clear button消失，欄位卻不會回復？
-    
-    return textField
-  }()
+  let taskTextField = UITextField()
   
   var timeBrain = TimeBrain()
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    /// Configure View
+    configureTaskTextField()
+    
     /// Delegate
     taskTextField.delegate = self
-    
-    /// Display View
-    view.addSubview(taskTextField)
-    configureConstraints()
     
     /// Start countdown
     timeBrain.min = 0
@@ -43,7 +28,20 @@ class MainViewController: UIViewController {
     timeBrain.timer()
   }
   
-  func configureConstraints() {
+  func configureTaskTextField() {
+    taskTextField.translatesAutoresizingMaskIntoConstraints = false
+    taskTextField.placeholder = "What's Your Major Task?"
+    taskTextField.backgroundColor = .none
+    taskTextField.textColor = .darkGray
+    taskTextField.textAlignment = .center
+    taskTextField.font = .boldSystemFont(ofSize: 24)
+    taskTextField.clearButtonMode = .whileEditing // 為什麼結束editing後，clear button消失，欄位卻不會回復？
+    
+    taskTextField.adjustsFontSizeToFitWidth = true
+    taskTextField.minimumFontSize = 20
+    
+    view.addSubview(taskTextField)
+    
     NSLayoutConstraint.activate([
       /// TaskTextField
       taskTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
