@@ -29,6 +29,8 @@ class MainViewController: UIViewController {
   }
   
   func configureTaskTextField() {
+    view.addSubview(taskTextField)
+    
     taskTextField.translatesAutoresizingMaskIntoConstraints = false
     taskTextField.placeholder = "What's Your Major Task?"
     taskTextField.backgroundColor = .none
@@ -39,8 +41,6 @@ class MainViewController: UIViewController {
     
     taskTextField.adjustsFontSizeToFitWidth = true
     taskTextField.minimumFontSize = 20
-    
-    view.addSubview(taskTextField)
     
     NSLayoutConstraint.activate([
       /// TaskTextField
