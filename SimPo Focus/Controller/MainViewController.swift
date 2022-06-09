@@ -34,6 +34,7 @@ class MainViewController: UIViewController {
     taskTextField.placeholder = "What's Your Major Task?"
     taskTextField.backgroundColor = .none
     taskTextField.textColor = .darkGray
+    taskTextField.borderStyle = .line
     taskTextField.textAlignment = .center
     taskTextField.font = .boldSystemFont(ofSize: 24)
     taskTextField.clearButtonMode = .whileEditing // 為什麼結束editing後，clear button消失，欄位卻不會回復？
@@ -45,8 +46,9 @@ class MainViewController: UIViewController {
     
     NSLayoutConstraint.activate([
       /// TaskTextField
-      taskTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       taskTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+      taskTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      taskTextField.widthAnchor.constraint(greaterThanOrEqualToConstant: 300)
     ])
   }
 
