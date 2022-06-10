@@ -41,7 +41,12 @@ class MainViewController: UIViewController {
   func configureTaskTxtField() {
     view.addSubview(taskTextField)
     
-    taskTextField.placeholder = "What's Your Major Task?"
+    //TODO: - change the color of
+    taskTextField.attributedPlaceholder = NSAttributedString(
+      string: "Your Major Task",
+      attributes: [NSAttributedString.Key.foregroundColor: culturedWhite]
+    )
+    taskTextField.tintColor = culturedWhite
     taskTextField.backgroundColor = .none
     taskTextField.textColor = .darkGray
     taskTextField.borderStyle = .line
