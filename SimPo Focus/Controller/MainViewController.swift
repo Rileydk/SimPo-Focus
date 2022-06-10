@@ -9,7 +9,10 @@ import UIKit
 
 class MainViewController: UIViewController {
   
+  let testColor = UIColor(red: 240/255, green: 128/255, blue: 128/255, alpha: 1) // delete later
+  
   let taskTextField = UITextField()
+  let focusButton = UIButton(frame: CGRect(x: 30, y: 300, width: 50, height: 20))
   
   var timeBrain = TimeBrain()
 
@@ -17,7 +20,8 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     
     /// Configure View
-    configureTaskTextField()
+    configureTaskTxtField()
+    configureFoucusButton()
     
     /// Delegate
     taskTextField.delegate = self
@@ -28,7 +32,7 @@ class MainViewController: UIViewController {
     timeBrain.timer()
   }
   
-  func configureTaskTextField() {
+  func configureTaskTxtField() {
     view.addSubview(taskTextField)
     
     taskTextField.placeholder = "What's Your Major Task?"
@@ -36,7 +40,7 @@ class MainViewController: UIViewController {
     taskTextField.textColor = .darkGray
     taskTextField.borderStyle = .line
     taskTextField.textAlignment = .center
-    taskTextField.font = .boldSystemFont(ofSize: 24)
+    taskTextField.font = .boldSystemFont(ofSize: 32)
     taskTextField.clearButtonMode = .whileEditing // 為什麼結束editing後，clear button消失，欄位卻不會回復？
     
     taskTextField.adjustsFontSizeToFitWidth = true
@@ -50,6 +54,26 @@ class MainViewController: UIViewController {
       taskTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       taskTextField.widthAnchor.constraint(greaterThanOrEqualToConstant: 300)
     ])
+  }
+  
+  func configureFoucusButton() {
+    let steelBlue = UIColor(red: 63/255, green: 114/255, blue: 175/255, alpha: 1)
+    let culturedWhite = UIColor(red: 249/255, green: 247/255, blue: 247/255, alpha: 1)
+    
+    view.addSubview(focusButton)
+    
+    focusButton.backgroundColor = testColor
+    focusButton.setTitle("Focus", for: .normal)
+    focusButton.setTitleColor(steelBlue, for: .normal)
+    focusButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+    focusButton.titleLabel?.textAlignment = .center
+    focusButton.layer.cornerRadius = 3
+    
+    focusButton.addTarget(self, action: #selector(goCountdownSetting), for: .touchUpInside)
+  }
+  
+  @objc func goCountdownSetting() {
+    print("button pressed")
   }
 
 }
