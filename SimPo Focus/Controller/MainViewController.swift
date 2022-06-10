@@ -9,10 +9,11 @@ import UIKit
 
 class MainViewController: UIViewController {
   
-  let testColor = UIColor(red: 240/255, green: 128/255, blue: 128/255, alpha: 1) // delete later
+  #warning("delete this line later")
+  let testColor = UIColor(red: 240/255, green: 128/255, blue: 128/255, alpha: 1)
   
   let taskTextField = UITextField()
-  let focusButton = UIButton(frame: CGRect(x: 30, y: 300, width: 50, height: 20))
+  let focusButton = UIButton()
   
   var timeBrain = TimeBrain()
 
@@ -61,15 +62,23 @@ class MainViewController: UIViewController {
     let culturedWhite = UIColor(red: 249/255, green: 247/255, blue: 247/255, alpha: 1)
     
     view.addSubview(focusButton)
+    focusButton.addTarget(self, action: #selector(goCountdownSetting), for: .touchUpInside)
     
-    focusButton.backgroundColor = testColor
+    focusButton.backgroundColor = culturedWhite
     focusButton.setTitle("Focus", for: .normal)
     focusButton.setTitleColor(steelBlue, for: .normal)
     focusButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
     focusButton.titleLabel?.textAlignment = .center
-    focusButton.layer.cornerRadius = 3
+    focusButton.layer.cornerRadius = 5
     
-    focusButton.addTarget(self, action: #selector(goCountdownSetting), for: .touchUpInside)
+    focusButton.translatesAutoresizingMaskIntoConstraints = false
+    
+    NSLayoutConstraint.activate([
+      focusButton.topAnchor.constraint(equalTo: taskTextField.bottomAnchor, constant: 50),
+      focusButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      focusButton.widthAnchor.constraint(equalToConstant: 150),
+      focusButton.heightAnchor.constraint(equalToConstant: 50)
+    ])
   }
   
   @objc func goCountdownSetting() {
