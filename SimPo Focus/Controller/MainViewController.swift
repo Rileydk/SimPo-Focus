@@ -14,12 +14,15 @@ class MainViewController: UIViewController {
   
   var timeBrain = TimeBrain()
   
-  /// Colors
+  // Colors
   #warning("delete this line after finish all view settings")
   let testColor = UIColor(red: 240/255, green: 128/255, blue: 128/255, alpha: 1)
   
   let steelBlue = UIColor(red: 63/255, green: 114/255, blue: 175/255, alpha: 1)
   let culturedWhite = UIColor(red: 249/255, green: 247/255, blue: 247/255, alpha: 1)
+  
+  // Info
+  let taskTextFieldPlaceholder = "Your Major Task"
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -43,12 +46,12 @@ class MainViewController: UIViewController {
     
     //TODO: - change the color of
     taskTextField.attributedPlaceholder = NSAttributedString(
-      string: "Your Major Task",
+      string: taskTextFieldPlaceholder,
       attributes: [NSAttributedString.Key.foregroundColor: culturedWhite]
     )
     taskTextField.tintColor = culturedWhite
     taskTextField.backgroundColor = .none
-    taskTextField.textColor = .darkGray
+    taskTextField.textColor = culturedWhite
     taskTextField.borderStyle = .line
     taskTextField.textAlignment = .center
     taskTextField.font = .boldSystemFont(ofSize: 32)
@@ -97,6 +100,10 @@ class MainViewController: UIViewController {
 //MARK: - UITextField Delegate
 extension MainViewController: UITextFieldDelegate {
   
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    taskTextField.placeholder = ""
+  }
+  
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     view.endEditing(true)
   }
@@ -104,6 +111,10 @@ extension MainViewController: UITextFieldDelegate {
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     taskTextField.resignFirstResponder()
     return true
+  }
+  
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    taskTextField.placeholder =  taskTextField.text != "" ? .none : taskTextFieldPlaceholder
   }
   
 }
