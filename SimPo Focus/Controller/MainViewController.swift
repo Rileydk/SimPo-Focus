@@ -9,25 +9,30 @@ import UIKit
 
 class MainViewController: UIViewController {
   
-  #warning("delete this line later")
-  let testColor = UIColor(red: 240/255, green: 128/255, blue: 128/255, alpha: 1)
-  
   let taskTextField = UITextField()
   let focusButton = UIButton()
   
   var timeBrain = TimeBrain()
+  
+  /// Colors
+  #warning("delete this line after finish all view settings")
+  let testColor = UIColor(red: 240/255, green: 128/255, blue: 128/255, alpha: 1)
+  
+  let steelBlue = UIColor(red: 63/255, green: 114/255, blue: 175/255, alpha: 1)
+  let culturedWhite = UIColor(red: 249/255, green: 247/255, blue: 247/255, alpha: 1)
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    /// Configure View
+    // View
+    self.view.backgroundColor = steelBlue
     configureTaskTxtField()
     configureFoucusButton()
     
-    /// Delegate
+    // Delegate
     taskTextField.delegate = self
     
-    /// Start countdown
+    // Start countdown
     timeBrain.min = 0
     timeBrain.sec = 0
     timeBrain.timer()
@@ -50,7 +55,6 @@ class MainViewController: UIViewController {
     taskTextField.translatesAutoresizingMaskIntoConstraints = false
     
     NSLayoutConstraint.activate([
-      /// TaskTextField
       taskTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
       taskTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       taskTextField.widthAnchor.constraint(greaterThanOrEqualToConstant: 300)
@@ -58,8 +62,6 @@ class MainViewController: UIViewController {
   }
   
   func configureFoucusButton() {
-    let steelBlue = UIColor(red: 63/255, green: 114/255, blue: 175/255, alpha: 1)
-    let culturedWhite = UIColor(red: 249/255, green: 247/255, blue: 247/255, alpha: 1)
     
     view.addSubview(focusButton)
     focusButton.addTarget(self, action: #selector(goCountdownSetting), for: .touchUpInside)
