@@ -102,6 +102,21 @@ class MainViewController: UIViewController {
     view.addSubview(breakButton)
     breakButton.addTarget(self, action: #selector(goCountdownSetting), for: .touchUpInside)
     
+    breakButton.backgroundColor = culturedWhite
+    breakButton.setTitle("Break", for: .normal)
+    breakButton.setTitleColor(steelBlue, for: .normal)
+    breakButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+    breakButton.titleLabel?.textAlignment = .center
+    breakButton.layer.cornerRadius = 5
+    
+    breakButton.translatesAutoresizingMaskIntoConstraints = false
+    
+    NSLayoutConstraint.activate([
+      breakButton.topAnchor.constraint(equalTo: focusButton.bottomAnchor, constant: 30),
+      breakButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      breakButton.widthAnchor.constraint(equalToConstant: 150),
+      breakButton.heightAnchor.constraint(equalToConstant: 50)
+    ])
     
   }
   
