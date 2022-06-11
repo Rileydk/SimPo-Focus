@@ -60,18 +60,19 @@ class MainViewController: UIViewController {
     taskTextField.textColor = culturedWhite
     taskTextField.borderStyle = .line
     taskTextField.textAlignment = .center
+    //TODO: - change font
     taskTextField.font = .boldSystemFont(ofSize: 32)
     taskTextField.clearButtonMode = .whileEditing
     
     taskTextField.adjustsFontSizeToFitWidth = true
-    taskTextField.minimumFontSize = 20
+    taskTextField.minimumFontSize = 22
     
     taskTextField.translatesAutoresizingMaskIntoConstraints = false
     
     NSLayoutConstraint.activate([
-      taskTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+      taskTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 150),
       taskTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      taskTextField.widthAnchor.constraint(greaterThanOrEqualToConstant: 300)
+      taskTextField.widthAnchor.constraint(lessThanOrEqualToConstant: 300)
     ])
   }
   
@@ -83,17 +84,20 @@ class MainViewController: UIViewController {
     focusButton.backgroundColor = culturedWhite
     focusButton.setTitle("Focus", for: .normal)
     focusButton.setTitleColor(steelBlue, for: .normal)
-    focusButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+    //TODO: - change font
+    focusButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 36)
     focusButton.titleLabel?.textAlignment = .center
     focusButton.layer.cornerRadius = 5
     
     focusButton.translatesAutoresizingMaskIntoConstraints = false
     
     NSLayoutConstraint.activate([
-      focusButton.topAnchor.constraint(equalTo: taskTextField.bottomAnchor, constant: 50),
+      focusButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200),
+      //FIXME: - adjust priority
+      focusButton.topAnchor.constraint(greaterThanOrEqualTo: taskTextField.bottomAnchor, constant: 100),
       focusButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      focusButton.widthAnchor.constraint(equalToConstant: 150),
-      focusButton.heightAnchor.constraint(equalToConstant: 50)
+      focusButton.widthAnchor.constraint(equalToConstant: 250),
+      focusButton.heightAnchor.constraint(equalToConstant: 67)
     ])
   }
   
@@ -105,7 +109,8 @@ class MainViewController: UIViewController {
     breakButton.backgroundColor = culturedWhite
     breakButton.setTitle("Break", for: .normal)
     breakButton.setTitleColor(steelBlue, for: .normal)
-    breakButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+    //TODO: - change font
+    breakButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 36)
     breakButton.titleLabel?.textAlignment = .center
     breakButton.layer.cornerRadius = 5
     
@@ -114,8 +119,8 @@ class MainViewController: UIViewController {
     NSLayoutConstraint.activate([
       breakButton.topAnchor.constraint(equalTo: focusButton.bottomAnchor, constant: 30),
       breakButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      breakButton.widthAnchor.constraint(equalToConstant: 150),
-      breakButton.heightAnchor.constraint(equalToConstant: 50)
+      breakButton.widthAnchor.constraint(equalToConstant: 250),
+      breakButton.heightAnchor.constraint(equalToConstant: 67)
     ])
     
   }
