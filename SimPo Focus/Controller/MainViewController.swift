@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
   //TODO: - add break button
   let taskTextField = UITextField()
   let focusButton = UIButton()
+  let breakButton = UIButton(frame: CGRect(x: 30, y: 200, width: 50, height: 20))
   
   var timeBrain = TimeBrain()
   
@@ -32,6 +33,7 @@ class MainViewController: UIViewController {
     self.view.backgroundColor = steelBlue
     configureTaskTxtField()
     configureFoucusButton()
+    configureBreakButton()
     
     // Delegate
     taskTextField.delegate = self
@@ -93,6 +95,14 @@ class MainViewController: UIViewController {
       focusButton.widthAnchor.constraint(equalToConstant: 150),
       focusButton.heightAnchor.constraint(equalToConstant: 50)
     ])
+  }
+  
+  func configureBreakButton() {
+    
+    view.addSubview(breakButton)
+    breakButton.addTarget(self, action: #selector(goCountdownSetting), for: .touchUpInside)
+    
+    
   }
   
   //TODO: - add segue(?)
