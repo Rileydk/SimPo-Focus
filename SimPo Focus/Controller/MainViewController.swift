@@ -9,6 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
   
+  //TODO: - add break button
   let taskTextField = UITextField()
   let focusButton = UIButton()
   
@@ -44,7 +45,10 @@ class MainViewController: UIViewController {
   func configureTaskTxtField() {
     view.addSubview(taskTextField)
     
-    //TODO: - change the color of
+    //TODO: - 無法輸入中文
+    //TODO: - 結束editing後，clear button所導致的欄位拉長
+    //TODO: - 限制長度或字數（區分中英文？）
+    //TODO: - 可選擇想修改的位置（目前只能從最前面或最後面開始移動）
     taskTextField.attributedPlaceholder = NSAttributedString(
       string: taskTextFieldPlaceholder,
       attributes: [NSAttributedString.Key.foregroundColor: culturedWhite]
@@ -55,7 +59,7 @@ class MainViewController: UIViewController {
     taskTextField.borderStyle = .line
     taskTextField.textAlignment = .center
     taskTextField.font = .boldSystemFont(ofSize: 32)
-    taskTextField.clearButtonMode = .whileEditing // 為什麼結束editing後，clear button消失，欄位卻不會回復？
+    taskTextField.clearButtonMode = .whileEditing
     
     taskTextField.adjustsFontSizeToFitWidth = true
     taskTextField.minimumFontSize = 20
@@ -91,6 +95,8 @@ class MainViewController: UIViewController {
     ])
   }
   
+  //TODO: - add segue(?)
+  //TODO: - bring title and state to next page
   @objc func goCountdownSetting() {
     print("button pressed")
   }
