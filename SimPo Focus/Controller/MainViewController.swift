@@ -31,7 +31,7 @@ class MainViewController: UIViewController {
     
     // View
     self.view.backgroundColor = steelBlue
-    configureTaskTxtField()
+    configureTaskTextField()
     configureFoucusButton()
     configureBreakButton()
     
@@ -44,7 +44,7 @@ class MainViewController: UIViewController {
     timeBrain.timer()
   }
   
-  func configureTaskTxtField() {
+  func configureTaskTextField() {
     view.addSubview(taskTextField)
     
     //TODO: - 無法輸入中文
