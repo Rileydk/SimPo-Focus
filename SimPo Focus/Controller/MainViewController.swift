@@ -48,7 +48,6 @@ class MainViewController: UIViewController {
     view.addSubview(taskTextField)
     
     //TODO: - 無法輸入中文
-    //TODO: - 結束editing後，clear button所導致的欄位拉長
     //TODO: - 限制長度或字數（區分中英文？）
     //TODO: - 可選擇想修改的位置（目前只能從最前面或最後面開始移動）
     taskTextField.attributedPlaceholder = NSAttributedString(
@@ -58,10 +57,11 @@ class MainViewController: UIViewController {
     taskTextField.tintColor = culturedWhite
     taskTextField.backgroundColor = .none
     taskTextField.textColor = culturedWhite
-    taskTextField.borderStyle = .line
+    #warning("delete this line after finish all view settings")
+//    taskTextField.borderStyle = .line
     taskTextField.textAlignment = .center
     //TODO: - change font
-    taskTextField.font = .boldSystemFont(ofSize: 32)
+    taskTextField.font = .boldSystemFont(ofSize: 46)
     taskTextField.clearButtonMode = .whileEditing
     
     taskTextField.adjustsFontSizeToFitWidth = true
@@ -70,9 +70,11 @@ class MainViewController: UIViewController {
     taskTextField.translatesAutoresizingMaskIntoConstraints = false
     
     NSLayoutConstraint.activate([
-      taskTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 150),
+      taskTextField.topAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor, constant: 150),
+      taskTextField.topAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+      taskTextField.leadingAnchor.constraint(lessThanOrEqualTo: view.leadingAnchor, constant: 30),
+      taskTextField.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: 30),
       taskTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      taskTextField.widthAnchor.constraint(lessThanOrEqualToConstant: 300)
     ])
   }
   
@@ -92,9 +94,7 @@ class MainViewController: UIViewController {
     focusButton.translatesAutoresizingMaskIntoConstraints = false
     
     NSLayoutConstraint.activate([
-      focusButton.topAnchor.constraint(greaterThanOrEqualTo: taskTextField.bottomAnchor, constant: 100),
-      focusButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200),
-      //FIXME: - adjust priority
+      focusButton.topAnchor.constraint(greaterThanOrEqualTo: taskTextField.bottomAnchor, constant: 80),
       focusButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       focusButton.widthAnchor.constraint(equalToConstant: 250),
       focusButton.heightAnchor.constraint(equalToConstant: 67)
@@ -118,6 +118,8 @@ class MainViewController: UIViewController {
     
     NSLayoutConstraint.activate([
       breakButton.topAnchor.constraint(equalTo: focusButton.bottomAnchor, constant: 30),
+      breakButton.bottomAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100),
+      breakButton.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
       breakButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       breakButton.widthAnchor.constraint(equalToConstant: 250),
       breakButton.heightAnchor.constraint(equalToConstant: 67)
