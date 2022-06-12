@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
   
-  //TODO: - add break button
+  //TODO: - try changing to UITextView to fulfill mutiple lines task title
   let taskTextField = UITextField()
   let focusButton = UIButton()
   let breakButton = UIButton(frame: CGRect(x: 30, y: 200, width: 50, height: 20))
