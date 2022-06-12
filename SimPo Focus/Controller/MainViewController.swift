@@ -92,9 +92,9 @@ class MainViewController: UIViewController {
     focusButton.translatesAutoresizingMaskIntoConstraints = false
     
     NSLayoutConstraint.activate([
+      focusButton.topAnchor.constraint(greaterThanOrEqualTo: taskTextField.bottomAnchor, constant: 100),
       focusButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200),
       //FIXME: - adjust priority
-      focusButton.topAnchor.constraint(greaterThanOrEqualTo: taskTextField.bottomAnchor, constant: 100),
       focusButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       focusButton.widthAnchor.constraint(equalToConstant: 250),
       focusButton.heightAnchor.constraint(equalToConstant: 67)
