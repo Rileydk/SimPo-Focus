@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // iOS 13的設定會在SceneDelegate被執行
     } else {
       let window = UIWindow(frame: UIScreen.main.bounds)
-      // self.window = window
       window.rootViewController = MainViewController()
       window.makeKeyAndVisible()
     }
@@ -34,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func applicationDidBecomeActive(_ application: UIApplication) {}
   
-  // func applicationWillTerminate(_ application: UIApplication) {}
+  func applicationWillTerminate(_ application: UIApplication) {}
 
   // MARK: - UISceneSession Lifecycle
 
