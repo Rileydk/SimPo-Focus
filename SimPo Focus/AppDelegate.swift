@@ -14,8 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     
     if #available(iOS 13.0, *) {
+      print("iOS version is 13 or higher")
       // iOS 13的設定會在SceneDelegate被執行
     } else {
+      print("iOS version is lower than 13")
       let window = UIWindow(frame: UIScreen.main.bounds)
       window.rootViewController = MainViewController()
       window.makeKeyAndVisible()
