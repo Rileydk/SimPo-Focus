@@ -298,6 +298,7 @@
 				DEVELOPMENT_TEAM = LC7DCZXZ89;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SimPo Focus/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "SimPo Focus";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -325,6 +326,7 @@
 				DEVELOPMENT_TEAM = LC7DCZXZ89;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SimPo Focus/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "SimPo Focus";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
