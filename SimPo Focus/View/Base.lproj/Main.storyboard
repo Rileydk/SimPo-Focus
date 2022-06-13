@@ -23,36 +23,6 @@
             </objects>
             <point key="canvasLocation" x="-194" y="92"/>
         </scene>
-        <!--Countdown View Controller-->
-        <scene sceneID="fTW-YG-YSK">
-            <objects>
-                <viewController id="6zK-T7-PIT" customClass="CountdownViewController" customModule="SimPo_Focus" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oR3-ju-c9H">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="RMt-bm-bGq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Knb-n0-6vl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="645" y="92"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="6hF-K5-P2g">
-            <objects>
-                <viewController id="FlY-mk-FLl" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aLq-eL-Isw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="YZw-gc-bJg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YRi-fd-HFS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1491" y="92"/>
-        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
