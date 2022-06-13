@@ -86,7 +86,7 @@ class MainViewController: UIViewController {
   func configureFoucusButton() {
     
     view.addSubview(focusButton)
-    focusButton.addTarget(self, action: #selector(goCountdownSetting), for: .touchUpInside)
+    focusButton.addTarget(self, action: #selector(goSetTimerVC), for: .touchUpInside)
     
     focusButton.backgroundColor = culturedWhite
     focusButton.setTitle("Focus", for: .normal)
@@ -108,7 +108,7 @@ class MainViewController: UIViewController {
   func configureBreakButton() {
     
     view.addSubview(breakButton)
-    breakButton.addTarget(self, action: #selector(goCountdownSetting), for: .touchUpInside)
+    breakButton.addTarget(self, action: #selector(goSetTimerVC), for: .touchUpInside)
     
     breakButton.backgroundColor = culturedWhite
     breakButton.setTitle("Break", for: .normal)
@@ -132,8 +132,9 @@ class MainViewController: UIViewController {
   
   //TODO: - add segue(?)
   //TODO: - bring title and state to next page
-  @objc func goCountdownSetting() {
-    print("button pressed")
+  @objc func goSetTimerVC() {
+    let setTimerVC = SetTimerViewController()
+    self.present(setTimerVC, animated: true)
   }
   
 //  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
