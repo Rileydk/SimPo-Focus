@@ -5,6 +5,8 @@
 //  Created by Riley Lai on 2022/6/8.
 //
 
+//FIXME: - Cannot launch on iOS version lower than 13
+
 import UIKit
 
 class MainViewController: UIViewController {

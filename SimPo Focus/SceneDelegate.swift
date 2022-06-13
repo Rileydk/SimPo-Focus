@@ -20,10 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard let scene = (scene as? UIWindowScene) else { return }
     
     window = UIWindow(frame: scene.coordinateSpace.bounds)
-    let mainViewController = MainViewController()
     
     window?.windowScene = scene
-    window?.rootViewController = mainViewController
+    window?.rootViewController = MainViewController()
     
     window?.makeKeyAndVisible()
   }
