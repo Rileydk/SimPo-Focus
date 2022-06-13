@@ -47,9 +47,10 @@ class MainViewController: UIViewController {
   func configureTaskTextField() {
     view.addSubview(taskTextField)
     
-    //TODO: - 無法輸入中文
     //TODO: - 限制長度或字數（區分中英文？）
-    //TODO: - 可選擇想修改的位置（目前只能從最前面或最後面開始移動）
+    //TODO: - 可選擇想修改的位置（目前只能從最前面或最後面開始移動）selectedTextRange?
+    //TODO: - clearButton導致的text位移（inset）處理
+    //TODO: - change font
     taskTextField.attributedPlaceholder = NSAttributedString(
       string: taskTextFieldPlaceholder,
       attributes: [NSAttributedString.Key.foregroundColor: culturedWhite]
@@ -60,9 +61,9 @@ class MainViewController: UIViewController {
     #warning("delete this line after finish all view settings")
 //    taskTextField.borderStyle = .line
     taskTextField.textAlignment = .center
-    //TODO: - change font
     taskTextField.font = .boldSystemFont(ofSize: 46)
     taskTextField.clearButtonMode = .whileEditing
+    taskTextField.keyboardType = .default
     
     taskTextField.adjustsFontSizeToFitWidth = true
     taskTextField.minimumFontSize = 22
@@ -78,6 +79,8 @@ class MainViewController: UIViewController {
     ])
   }
   
+  //TODO: - 陰影效果
+  //TODO: - 按住時顏色加深且無陰影，形成按壓感
   func configureFoucusButton() {
     
     view.addSubview(focusButton)
@@ -86,7 +89,6 @@ class MainViewController: UIViewController {
     focusButton.backgroundColor = culturedWhite
     focusButton.setTitle("Focus", for: .normal)
     focusButton.setTitleColor(steelBlue, for: .normal)
-    //TODO: - change font
     focusButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 36)
     focusButton.titleLabel?.textAlignment = .center
     focusButton.layer.cornerRadius = 5
@@ -109,7 +111,6 @@ class MainViewController: UIViewController {
     breakButton.backgroundColor = culturedWhite
     breakButton.setTitle("Break", for: .normal)
     breakButton.setTitleColor(steelBlue, for: .normal)
-    //TODO: - change font
     breakButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 36)
     breakButton.titleLabel?.textAlignment = .center
     breakButton.layer.cornerRadius = 5
