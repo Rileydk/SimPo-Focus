@@ -79,6 +79,7 @@ class MainViewController: UIViewController {
       taskTextField.leadingAnchor.constraint(lessThanOrEqualTo: view.leadingAnchor, constant: 30),
       taskTextField.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: 30),
       taskTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      taskTextField.widthAnchor.constraint(lessThanOrEqualToConstant: 300)
     ])
   }
   
