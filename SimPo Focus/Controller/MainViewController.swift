@@ -18,6 +18,7 @@ let culturedWhite = UIColor(red: 249/255, green: 247/255, blue: 247/255, alpha: 
 class MainViewController: UIViewController {
   
   //TODO: - try changing to UITextView to fulfill mutiple lines task title
+  let brandLabel = UILabel()
   let taskTextField = UITextField()
   let focusButton = UIButton()
   let breakButton = UIButton(frame: CGRect(x: 30, y: 200, width: 50, height: 20))
@@ -32,6 +33,7 @@ class MainViewController: UIViewController {
     
     // View
     self.view.backgroundColor = steelBlue
+    configureBrandLabel()
     configureTaskTextField()
     configureFoucusButton()
     configureBreakButton()
@@ -43,6 +45,22 @@ class MainViewController: UIViewController {
     timeBrain.min = 0
     timeBrain.sec = 0
     timeBrain.timer()
+  }
+  
+  func configureBrandLabel() {
+    view.addSubview(brandLabel)
+    
+    brandLabel.text = "SimPo Focus"
+    brandLabel.textColor = culturedWhite
+    brandLabel.font = .systemFont(ofSize: 28)
+    brandLabel.textAlignment = .center
+    
+    brandLabel.translatesAutoresizingMaskIntoConstraints = false
+    
+    NSLayoutConstraint.activate([
+      brandLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 140),
+      brandLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+    ])
   }
   
   func configureTaskTextField() {
