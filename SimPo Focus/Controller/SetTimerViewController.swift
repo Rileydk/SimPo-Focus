@@ -12,27 +12,34 @@ class SetTimerViewController: UIViewController {
   var state = ""
   var task = ""
   
+  var stateLabel = UILabel()
+  
+  let steelBlue = UIColor(red: 63/255, green: 114/255, blue: 175/255, alpha: 1)
   let culturedWhite = UIColor(red: 249/255, green: 247/255, blue: 247/255, alpha: 1)
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    print("It's time to \(state) on \(task)")
-    // focus: It's time to focus on Your Task / It's time to focus on ...
-    // break: It's time to take a break, for your Task
     
+    // View
     self.view.backgroundColor = culturedWhite
+    configureStateLabel()
   }
     
-
-  /*
-  // MARK: - Navigation
-
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      // Get the new view controller using segue.destination.
-      // Pass the selected object to the new view controller.
+  func configureStateLabel() {
+    view.addSubview(stateLabel)
+    
+    stateLabel.text = state
+    stateLabel.accessibilityLabel = state
+    stateLabel.font = .boldSystemFont(ofSize: 46)
+    stateLabel.textColor = steelBlue
+    stateLabel.textAlignment = .center
+    
+    stateLabel.translatesAutoresizingMaskIntoConstraints = false
+    
+    NSLayoutConstraint.activate([
+      stateLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+      stateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+    ])
   }
-  */
 
 }
