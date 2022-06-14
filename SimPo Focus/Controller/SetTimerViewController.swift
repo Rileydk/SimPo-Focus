@@ -125,7 +125,7 @@ extension SetTimerViewController: UITextFieldDelegate {
   }
   
   func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-    timeSet = Int(timerTextField.text ?? (state == "Focus" ? "25" : "5"))!
+    timeSet = Int(timerTextField.text!) ?? (state == "Focus" ? 25 : 5)
     return true
   }
   
