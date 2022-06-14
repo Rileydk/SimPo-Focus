@@ -11,6 +11,7 @@ class SetTimerViewController: UIViewController {
   
   var state = ""
   var task = ""
+  var timeSet = 0
   
   var stateLabel = UILabel()
   var taskLabel = UILabel()
@@ -18,6 +19,9 @@ class SetTimerViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    // Delegate
+    timerTextField.delegate = self
     
     // View
     //TODO: - add a custom Switch for Input and Output
@@ -64,13 +68,16 @@ class SetTimerViewController: UIViewController {
     view.addSubview(timerTextField)
     
     if state == "Focus" {
-      timerTextField.text = "25:00"
+      timeSet = 25
     } else {
-      timerTextField.text = "05:00"
+      timeSet = 5
     }
+    timerTextField.text = "\(timeSet):00"
     timerTextField.textColor = steelBlue
     timerTextField.font = .systemFont(ofSize: 42)
     timerTextField.textAlignment = .center
+    
+    timerTextField.keyboardType = .numberPad
     
     timerTextField.translatesAutoresizingMaskIntoConstraints = false
     
@@ -80,4 +87,25 @@ class SetTimerViewController: UIViewController {
     ])
   }
 
+}
+
+//MARK: - TimerTextFieldDelegate
+extension SetTimerViewController: UITextFieldDelegate {
+  func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    timerTextField.text = String(timeSet)
+    return true
+  }
+  
+  func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+    timeSet = Int(timerTextField.text ?? (state == "Focus" ? "25" : "5"))!
+    return true
+  }
+  
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    timerTextField.text = "\(timeSet):00"
+  }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    view.endEditing(true)
+  }
 }
