@@ -94,6 +94,8 @@ class MainViewController: UIViewController {
     focusButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 36)
     focusButton.titleLabel?.textAlignment = .center
     focusButton.layer.cornerRadius = 5
+    focusButton.layer.name = "Focus"
+    focusButton.accessibilityLabel = "Start Focus"
     
     focusButton.translatesAutoresizingMaskIntoConstraints = false
     
@@ -116,6 +118,8 @@ class MainViewController: UIViewController {
     breakButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 36)
     breakButton.titleLabel?.textAlignment = .center
     breakButton.layer.cornerRadius = 5
+    breakButton.layer.name = "Break"
+    breakButton.accessibilityLabel = "Take a Break"
     
     breakButton.translatesAutoresizingMaskIntoConstraints = false
     
@@ -132,14 +136,22 @@ class MainViewController: UIViewController {
   
   //TODO: - add segue(?)
   //TODO: - bring title and state to next page
-  @objc func goSetTimerVC() {
+  @objc func goSetTimerVC(sender: UIButton) {
     let setTimerVC = SetTimerViewController()
+    
+    if sender.layer.name == "Focus" {
+      setTimerVC.state = "Focus"
+      setTimerVC.task = taskTextField.text ?? "My Task"
+    } else {
+      setTimerVC.state = "Break"
+    }
+    
     self.present(setTimerVC, animated: true)
   }
   
 //  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      // Get the new view controller using segue.destination.
-      // Pass the selected object to the new view controller.
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
 //  }
 
 }
