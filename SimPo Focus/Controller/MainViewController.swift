@@ -57,6 +57,7 @@ class MainViewController: UIViewController {
       string: taskTextFieldPlaceholder,
       attributes: [NSAttributedString.Key.foregroundColor: culturedWhite]
     )
+    taskTextField.accessibilityLabel = "Set Your Major Task Here"
     taskTextField.tintColor = culturedWhite
     taskTextField.backgroundColor = .none
     taskTextField.textColor = culturedWhite
@@ -90,12 +91,12 @@ class MainViewController: UIViewController {
     
     focusButton.backgroundColor = culturedWhite
     focusButton.setTitle("Focus", for: .normal)
+    focusButton.accessibilityLabel = "Start Focus"
     focusButton.setTitleColor(steelBlue, for: .normal)
     focusButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 36)
     focusButton.titleLabel?.textAlignment = .center
     focusButton.layer.cornerRadius = 5
     focusButton.layer.name = "Focus"
-    focusButton.accessibilityLabel = "Start Focus"
     
     focusButton.translatesAutoresizingMaskIntoConstraints = false
     
@@ -114,12 +115,12 @@ class MainViewController: UIViewController {
     
     breakButton.backgroundColor = culturedWhite
     breakButton.setTitle("Break", for: .normal)
+    breakButton.accessibilityLabel = "Take a Break"
     breakButton.setTitleColor(steelBlue, for: .normal)
     breakButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 36)
     breakButton.titleLabel?.textAlignment = .center
     breakButton.layer.cornerRadius = 5
     breakButton.layer.name = "Break"
-    breakButton.accessibilityLabel = "Take a Break"
     
     breakButton.translatesAutoresizingMaskIntoConstraints = false
     

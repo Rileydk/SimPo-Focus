@@ -29,7 +29,7 @@ class SetTimerViewController: UIViewController {
     view.addSubview(stateLabel)
     
     stateLabel.text = state
-    stateLabel.accessibilityLabel = state
+    stateLabel.accessibilityLabel = "\(state) Mode"
     stateLabel.font = .boldSystemFont(ofSize: 46)
     stateLabel.textColor = steelBlue
     stateLabel.textAlignment = .center
