@@ -74,7 +74,7 @@ class SetTimerViewController: UIViewController {
     } else {
       timeSet = 5
     }
-    timerTextField.text = "\(timeSet):00"
+    timerTextField.text = unitDigitAdjusted()
     timerTextField.textColor = steelBlue
     timerTextField.font = .systemFont(ofSize: 42)
     timerTextField.textAlignment = .center
@@ -111,8 +111,16 @@ class SetTimerViewController: UIViewController {
     ])
   }
   
+  func unitDigitAdjusted() -> String {
+    if (timeSet != 10) && (timeSet / 10 == 0) {
+      return "0\(timeSet):00"
+    } else {
+      return "\(timeSet):00"
+    }
+  }
+  
   @objc func startCountdown() {
-    print("Start countdown!")
+    print("Start countdown")
   }
 
 }
@@ -130,7 +138,7 @@ extension SetTimerViewController: UITextFieldDelegate {
   }
   
   func textFieldDidEndEditing(_ textField: UITextField) {
-    timerTextField.text = "\(timeSet):00"
+    timerTextField.text = unitDigitAdjusted()
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
