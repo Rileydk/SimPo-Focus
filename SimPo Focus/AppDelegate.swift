@@ -15,27 +15,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
 
       if #available(iOS 13.0, *) {
-        // iOS 13的設定會在SceneDelegate被執行
+        // 若是iOS 13以上會在SceneDelegate執行
       } else {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = MainViewController()
-        window?.makeKeyAndVisible()
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
+        window.rootViewController = MainViewController()
+        window.makeKeyAndVisible()
       }
 
       return true
   }
   
-//  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//    // Override point for customization after application launch.
-//
-//    if #available(iOS 13.0, *) {
-//      // iOS 13的設定會在SceneDelegate被執行
-//    } else {
-////      self.window?.makeKeyAndVisible()
-//    }
-//
-//    return true
-//  }
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    // Override point for customization after application launch.
+
+    if #available(iOS 13.0, *) {
+      // 若是iOS 13以上會在SceneDelegate執行
+    } else {
+      self.window?.makeKeyAndVisible()
+    }
+
+    return true
+  }
   
   //MARK: - App Lifecycle for version lower than iOS 13
   func applicationWillResignActive(_ application: UIApplication) {}
