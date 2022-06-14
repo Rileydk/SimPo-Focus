@@ -9,6 +9,12 @@
 
 import UIKit
 
+// Colors
+#warning("delete this line after finish all view settings")
+let testColor = UIColor(red: 240/255, green: 128/255, blue: 128/255, alpha: 1)
+let steelBlue = UIColor(red: 63/255, green: 114/255, blue: 175/255, alpha: 1)
+let culturedWhite = UIColor(red: 249/255, green: 247/255, blue: 247/255, alpha: 1)
+
 class MainViewController: UIViewController {
   
   //TODO: - try changing to UITextView to fulfill mutiple lines task title
@@ -17,13 +23,6 @@ class MainViewController: UIViewController {
   let breakButton = UIButton(frame: CGRect(x: 30, y: 200, width: 50, height: 20))
   
   var timeBrain = TimeBrain()
-  
-  // Colors
-  #warning("delete this line after finish all view settings")
-  let testColor = UIColor(red: 240/255, green: 128/255, blue: 128/255, alpha: 1)
-  
-  let steelBlue = UIColor(red: 63/255, green: 114/255, blue: 175/255, alpha: 1)
-  let culturedWhite = UIColor(red: 249/255, green: 247/255, blue: 247/255, alpha: 1)
   
   // Info
   let taskTextFieldPlaceholder = "Your Major Task"
