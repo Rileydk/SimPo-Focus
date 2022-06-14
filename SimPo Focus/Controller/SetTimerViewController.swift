@@ -14,14 +14,17 @@ class SetTimerViewController: UIViewController {
   
   var stateLabel = UILabel()
   var taskLabel = UILabel()
+  var timerTextField = UITextField()
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // View
+    //TODO: - add a custom Switch for Input and Output
     self.view.backgroundColor = culturedWhite
     configureStateLabel()
     configureTaskLabel()
+    configureTimerTextField()
   }
     
   func configureStateLabel() {
@@ -54,6 +57,26 @@ class SetTimerViewController: UIViewController {
     NSLayoutConstraint.activate([
       taskLabel.topAnchor.constraint(equalTo: stateLabel.bottomAnchor, constant: 20),
       taskLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+    ])
+  }
+  
+  func configureTimerTextField() {
+    view.addSubview(timerTextField)
+    
+    if state == "Focus" {
+      timerTextField.text = "25:00"
+    } else {
+      timerTextField.text = "05:00"
+    }
+    timerTextField.textColor = steelBlue
+    timerTextField.font = .systemFont(ofSize: 42)
+    timerTextField.textAlignment = .center
+    
+    timerTextField.translatesAutoresizingMaskIntoConstraints = false
+    
+    NSLayoutConstraint.activate([
+      timerTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      timerTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor)
     ])
   }
 
