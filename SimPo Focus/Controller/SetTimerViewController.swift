@@ -16,6 +16,7 @@ class SetTimerViewController: UIViewController {
   var stateLabel = UILabel()
   var taskLabel = UILabel()
   var timerTextField = UITextField()
+  var startButton = UIButton()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,6 +30,7 @@ class SetTimerViewController: UIViewController {
     configureStateLabel()
     configureTaskLabel()
     configureTimerTextField()
+    configureStartButton()
   }
     
   func configureStateLabel() {
@@ -85,6 +87,32 @@ class SetTimerViewController: UIViewController {
       timerTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       timerTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor)
     ])
+  }
+  
+  func configureStartButton() {
+    view.addSubview(startButton)
+    startButton.addTarget(self, action: #selector(startCountdown), for: .touchUpInside)
+    
+    startButton.setTitle("Start", for: .normal)
+    startButton.accessibilityLabel = "Take a Break"
+    startButton.backgroundColor = steelBlue
+    startButton.setTitleColor(culturedWhite, for: .normal)
+    startButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 36)
+    startButton.titleLabel?.textAlignment = .center
+    startButton.layer.cornerRadius = 5
+    
+    startButton.translatesAutoresizingMaskIntoConstraints = false
+    
+    NSLayoutConstraint.activate([
+      startButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150),
+      startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      startButton.widthAnchor.constraint(equalToConstant: 250),
+      startButton.heightAnchor.constraint(equalToConstant: 67)
+    ])
+  }
+  
+  @objc func startCountdown() {
+    print("Start countdown!")
   }
 
 }
