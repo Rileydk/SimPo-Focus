@@ -26,6 +26,7 @@ class SetTimerViewController: UIViewController {
     
     // View
     //TODO: - add a custom Switch for Input and Output
+    //TODO: - add a circular UISlider
     self.view.backgroundColor = culturedWhite
     configureStateLabel()
     configureTaskLabel()
@@ -89,6 +90,7 @@ class SetTimerViewController: UIViewController {
     ])
   }
   
+  //TODO: - 陰影效果、按壓時顏色加深
   func configureStartButton() {
     view.addSubview(startButton)
     startButton.addTarget(self, action: #selector(startCountdown), for: .touchUpInside)

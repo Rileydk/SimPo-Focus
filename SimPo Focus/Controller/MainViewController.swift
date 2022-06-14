@@ -49,9 +49,8 @@ class MainViewController: UIViewController {
     view.addSubview(taskTextField)
     
     //TODO: - 限制長度或字數（區分中英文？）
-    //TODO: - 可選擇想修改的位置（目前只能從最前面或最後面開始移動）selectedTextRange?
     //TODO: - clearButton導致的text位移（inset）處理
-    //TODO: - change font
+    //TODO: - change font？
     taskTextField.attributedPlaceholder = NSAttributedString(
       string: taskTextFieldPlaceholder,
       attributes: [NSAttributedString.Key.foregroundColor: culturedWhite]
@@ -135,8 +134,7 @@ class MainViewController: UIViewController {
     
   }
   
-  //TODO: - add segue(?)
-  //TODO: - bring title and state to next page
+  //TODO: - make it full screen
   @objc func goSetTimerVC(sender: UIButton) {
     let setTimerVC = SetTimerViewController()
     
