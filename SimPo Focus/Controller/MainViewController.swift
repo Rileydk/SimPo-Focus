@@ -77,15 +77,13 @@ class MainViewController: UIViewController {
     taskTextField.tintColor = culturedWhite
     taskTextField.backgroundColor = .none
     taskTextField.textColor = culturedWhite
-    #warning("delete this line after finish all view settings")
-//    taskTextField.borderStyle = .line
     taskTextField.textAlignment = .center
     taskTextField.font = .boldSystemFont(ofSize: 46)
     taskTextField.clearButtonMode = .whileEditing
     taskTextField.keyboardType = .default
     
     taskTextField.adjustsFontSizeToFitWidth = true
-    taskTextField.minimumFontSize = 22
+    taskTextField.minimumFontSize = 28
     
     taskTextField.translatesAutoresizingMaskIntoConstraints = false
     
