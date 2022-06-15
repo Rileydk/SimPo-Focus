@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BF2ADBF928572E9F00AEAFA5 /* SetTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2ADBF828572E9F00AEAFA5 /* SetTimerViewController.swift */; };
+		BF2ADBFB2859CA6F00AEAFA5 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2ADBFA2859CA6F00AEAFA5 /* ColorManager.swift */; };
 		BF3BE33728507F3C00FE770D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3BE33628507F3C00FE770D /* AppDelegate.swift */; };
 		BF3BE33928507F3C00FE770D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3BE33828507F3C00FE770D /* SceneDelegate.swift */; };
 		BF3BE33B28507F3C00FE770D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3BE33A28507F3C00FE770D /* MainViewController.swift */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		BF2ADBF828572E9F00AEAFA5 /* SetTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewController.swift; sourceTree = "<group>"; };
+		BF2ADBFA2859CA6F00AEAFA5 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		BF3BE33328507F3C00FE770D /* SimPo Focus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SimPo Focus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3BE33628507F3C00FE770D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF3BE33828507F3C00FE770D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				BF3BE33628507F3C00FE770D /* AppDelegate.swift */,
 				BF3BE33828507F3C00FE770D /* SceneDelegate.swift */,
 				BF3BE34E2850998B00FE770D /* Controller */,
+				BF2ADBFA2859CA6F00AEAFA5 /* ColorManager.swift */,
 				BF3BE33F28507F3D00FE770D /* Assets.xcassets */,
 				BF3BE34128507F3D00FE770D /* LaunchScreen.storyboard */,
 				BF3BE34428507F3D00FE770D /* Info.plist */,
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF2ADBF928572E9F00AEAFA5 /* SetTimerViewController.swift in Sources */,
+				BF2ADBFB2859CA6F00AEAFA5 /* ColorManager.swift in Sources */,
 				BF3BE33B28507F3C00FE770D /* MainViewController.swift in Sources */,
 				BF3BE33728507F3C00FE770D /* AppDelegate.swift in Sources */,
 				BF3BE33928507F3C00FE770D /* SceneDelegate.swift in Sources */,
