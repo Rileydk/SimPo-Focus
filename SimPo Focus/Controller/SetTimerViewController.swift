@@ -19,14 +19,13 @@ class SetTimerViewController: UIViewController {
   var state: stateMode = .focusMode
   var task = ""
   var timeSet = 0
+  var totalSec: Int { timeSet * 60 }
   
   let stateLabel = UILabel()
   let taskLabel = UILabel()
   let timerTextField = UITextField()
   let startButton = UIButton()
   let backButton = UIButton()
-  
-  var totalSec: Int { timeSet * 60 }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -82,11 +81,13 @@ class SetTimerViewController: UIViewController {
   func configureTimerTextField() {
     view.addSubview(timerTextField)
     
-    if state.rawValue == "Focus" {
+    // 根據當前不同的state，給予不同的timeSet
+    if state == .focusMode {
       timeSet = 25
     } else {
       timeSet = 5
     }
+    // 處理0或個位數的情形
     timerTextField.text = "\(unitDigitAdjusted(time: timeSet)):00"
     timerTextField.textColor = steelBlue
     timerTextField.font = .systemFont(ofSize: 42)
@@ -130,6 +131,7 @@ class SetTimerViewController: UIViewController {
     view.addSubview(backButton)
     backButton.addTarget(self, action: #selector(backToMainVC), for: .touchUpInside)
     
+    // SF Symbol僅適用於iOS 13以上版本
     if #available(iOS 13.0, *) {
       let smallConfiguration = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 36))
       let backSymbol = UIImage(systemName: "chevron.backward.circle", withConfiguration: smallConfiguration)
@@ -165,6 +167,7 @@ class SetTimerViewController: UIViewController {
     //FIXME: - 好像會慢1~2秒才開始？這是正常的嗎？
     Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { Timer in
       if totalSecLeft >= 0 {
+        // 處理0或個位數的情形
         let minLeftLabel = self.unitDigitAdjusted(time: totalSecLeft / 60)
         let secLeftLabel = self.unitDigitAdjusted(time: totalSecLeft % 60)
         
@@ -193,18 +196,18 @@ extension SetTimerViewController: UITextFieldDelegate {
   
   //TODO: - 如何在不改變使用者輸入時間長的前提下，當超過120分鐘，點擊空白處會要求繼續輸入，點擊返回會收起鍵盤返回？
   func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-    timeSet = Int(timerTextField.text!) ?? (state.rawValue == "Focus" ? 25 : 5)
-    if (state.rawValue == "Focus" && timeSet > focusLimit) || (state.rawValue == "Break" && timeSet > breakLimit) {
+    timeSet = Int(timerTextField.text!) ?? (state == .focusMode ? 25 : 5)
+    if (state == .focusMode && timeSet > focusLimit) || (state == .breakMode && timeSet > breakLimit) {
       let alert = UIAlertController(
-        title: ( state.rawValue == "Focus" ? "為了讓你有適當的休息" : "休息太長會回不來"),
-        message: "不能計時超過\(state.rawValue == "Focus" ? focusLimit : breakLimit)分鐘喔！",
+        title: (state == .focusMode ? "為了讓你有適當的休息" : "休息太長會回不來"),
+        message: "不能計時超過\(state == .focusMode ? focusLimit : breakLimit)分鐘喔！",
         preferredStyle: .alert)
       let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
       
       alert.addAction(okAction)
       present(alert, animated: true, completion: nil)
       
-      timerTextField.text = String(state.rawValue == "Focus" ? focusLimit : breakLimit)
+      timerTextField.text = String(state == .focusMode ? focusLimit : breakLimit)
       return false
     } else {
       return true
