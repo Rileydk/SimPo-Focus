@@ -49,11 +49,11 @@ class SetTimerViewController: UIViewController {
     configureStateLabel()
     configureTaskLabel()
     configureTimerTextField()
-    configureStartButton()
     configureBackButton()
     configureStackView()
     configureStopButton()
     configurePauseButton()
+    configureStartButton()
   }
     
   func configureStateLabel() {
@@ -186,7 +186,7 @@ class SetTimerViewController: UIViewController {
     
     NSLayoutConstraint.activate([
       stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 280)
+      stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 250)
     ])
   }
   
