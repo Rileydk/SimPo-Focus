@@ -26,11 +26,14 @@ class SetTimerViewController: UIViewController {
   var timeSet = 0
   var totalSec: Int { timeSet * 60 }
   
+  let stackView = UIStackView()
   let stateLabel = UILabel()
   let taskLabel = UILabel()
   let timerTextField = UITextField()
   let startButton = UIButton()
   let backButton = UIButton()
+  let stopButton = UIButton()
+  let pauseButton = UIButton()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -48,6 +51,9 @@ class SetTimerViewController: UIViewController {
     configureTimerTextField()
     configureStartButton()
     configureBackButton()
+    configureStackView()
+    configureStopButton()
+    configurePauseButton()
   }
     
   func configureStateLabel() {
@@ -131,7 +137,7 @@ class SetTimerViewController: UIViewController {
     startButton.translatesAutoresizingMaskIntoConstraints = false
     
     NSLayoutConstraint.activate([
-      startButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150),
+      startButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 250),
       startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       startButton.widthAnchor.constraint(equalToConstant: 250),
       startButton.heightAnchor.constraint(equalToConstant: 67)
@@ -147,8 +153,8 @@ class SetTimerViewController: UIViewController {
     
     // SF Symbol僅適用於iOS 13以上版本
     if #available(iOS 13.0, *) {
-      let smallConfiguration = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 36))
-      let backSymbol = UIImage(systemName: "chevron.backward.circle", withConfiguration: smallConfiguration)
+      let configuration = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 36))
+      let backSymbol = UIImage(systemName: "chevron.backward.circle", withConfiguration: configuration)
       backButton.setImage(backSymbol, for: .normal)
       backButton.tintColor = opaqueSteelBlue
     } else {
@@ -165,6 +171,68 @@ class SetTimerViewController: UIViewController {
       backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30)
     ])
   }
+  
+  func configureStackView() {
+    view.addSubview(stackView)
+    
+    stackView.axis = .horizontal
+    stackView.distribution = .equalSpacing
+    stackView.spacing = 36
+    
+    stackView.addArrangedSubview(stopButton)
+    stackView.addArrangedSubview(pauseButton)
+    
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    
+    NSLayoutConstraint.activate([
+      stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 280)
+    ])
+  }
+  
+  func configureStopButton() {
+//    stopButton.isHidden = true
+//    stopButton.isEnabled = false
+    
+    if #available(iOS 13.0, *) {
+      let configuration = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 44))
+      let stopSymbol = UIImage(systemName: "stop.circle", withConfiguration: configuration)
+      stopButton.setImage(stopSymbol, for: .normal)
+      stopButton.tintColor = steelBlue
+    } else {
+      stopButton.setTitle("Stop", for: .normal)
+      stopButton.titleLabel?.font = .systemFont(ofSize: 28)
+      stopButton.titleLabel?.textAlignment = .left
+      stopButton.setTitleColor(opaqueSteelBlue, for: .normal)
+    }
+    
+    stopButton.translatesAutoresizingMaskIntoConstraints = false
+    
+    NSLayoutConstraint.activate([
+      stopButton.centerYAnchor.constraint(equalTo: stackView.centerYAnchor)
+    ])
+  }
+  
+  func configurePauseButton() {
+    if #available(iOS 13.0, *) {
+      let configuration = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 44))
+      let pauseSymbol = UIImage(systemName: "pause.circle", withConfiguration: configuration)
+      pauseButton.setImage(pauseSymbol, for: .normal)
+      pauseButton.tintColor = steelBlue
+    } else {
+      pauseButton.setTitle("Stop", for: .normal)
+      pauseButton.titleLabel?.font = .systemFont(ofSize: 28)
+      pauseButton.titleLabel?.textAlignment = .left
+      pauseButton.setTitleColor(opaqueSteelBlue, for: .normal)
+    }
+    
+    stopButton.translatesAutoresizingMaskIntoConstraints = false
+    
+    NSLayoutConstraint.activate([
+      stopButton.centerYAnchor.constraint(equalTo: stackView.centerYAnchor)
+    ])
+  }
+  
   
   @objc func changeButtonBackgroundColorWhenTouchUpInside(sender: UIButton) {
     if sender.currentTitle == "Start" {

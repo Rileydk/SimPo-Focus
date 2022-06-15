@@ -110,8 +110,9 @@ class MainViewController: UIViewController {
     focusButton.translatesAutoresizingMaskIntoConstraints = false
     
     NSLayoutConstraint.activate([
-      focusButton.topAnchor.constraint(greaterThanOrEqualTo: taskTextField.bottomAnchor, constant: 80),
+//      focusButton.topAnchor.constraint(greaterThanOrEqualTo: taskTextField.bottomAnchor, constant: 80),
       focusButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      focusButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 250),
       focusButton.widthAnchor.constraint(equalToConstant: 250),
       focusButton.heightAnchor.constraint(equalToConstant: 67)
     ])
@@ -141,9 +142,9 @@ class MainViewController: UIViewController {
     breakButton.translatesAutoresizingMaskIntoConstraints = false
     
     NSLayoutConstraint.activate([
-      breakButton.topAnchor.constraint(equalTo: focusButton.bottomAnchor, constant: 30),
-      breakButton.bottomAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100),
-      breakButton.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+      breakButton.topAnchor.constraint(equalTo: focusButton.bottomAnchor, constant: 20),
+//      breakButton.bottomAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100),
+//      breakButton.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
       breakButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       breakButton.widthAnchor.constraint(equalToConstant: 250),
       breakButton.heightAnchor.constraint(equalToConstant: 67)
