@@ -112,6 +112,8 @@ class SetTimerViewController: UIViewController {
   func configureStartButton() {
     view.addSubview(startButton)
     startButton.addTarget(self, action: #selector(startCountdown), for: .touchUpInside)
+    startButton.addTarget(self, action: #selector(changeButtonBackgroundColorWhenTouchUpInside), for: .touchDown)
+    startButton.addTarget(self, action: #selector(changeButtonBackgroundColorWhenReleased), for: .touchUpOutside)
     
     startButton.setTitle("Start", for: .normal)
     startButton.accessibilityLabel = "Take a Break"
@@ -120,6 +122,11 @@ class SetTimerViewController: UIViewController {
     startButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 36)
     startButton.titleLabel?.textAlignment = .center
     startButton.layer.cornerRadius = 5
+    
+    startButton.layer.shadowColor = coolGray.cgColor
+    startButton.layer.shadowOffset = CGSize(width: 0.0, height: 7.0)
+    startButton.layer.shadowOpacity = 1.0
+    startButton.layer.shadowRadius = 0.0
     
     startButton.translatesAutoresizingMaskIntoConstraints = false
     
@@ -135,6 +142,8 @@ class SetTimerViewController: UIViewController {
     
     view.addSubview(backButton)
     backButton.addTarget(self, action: #selector(backToMainVC), for: .touchUpInside)
+    backButton.addTarget(self, action: #selector(changeButtonBackgroundColorWhenTouchUpInside), for: .touchDown)
+    backButton.addTarget(self, action: #selector(changeButtonBackgroundColorWhenReleased), for: .touchUpOutside)
     
     // SF Symbol僅適用於iOS 13以上版本
     if #available(iOS 13.0, *) {
@@ -155,6 +164,24 @@ class SetTimerViewController: UIViewController {
       backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
       backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30)
     ])
+  }
+  
+  @objc func changeButtonBackgroundColorWhenTouchUpInside(sender: UIButton) {
+    if sender.currentTitle == "Start" {
+      sender.backgroundColor = darkCerulean
+      sender.layer.shadowColor = romainSilver.cgColor
+    } else {
+      sender.tintColor = opaqueDarkCerulean
+    }
+  }
+  
+  @objc func changeButtonBackgroundColorWhenReleased(sender: UIButton) {
+    if sender.currentTitle == "Start" {
+      sender.backgroundColor = steelBlue
+      sender.layer.shadowColor = coolGray.cgColor
+    } else {
+      sender.tintColor = opaqueSteelBlue
+    }
   }
   
   // 處理剩餘時數為個位數或0的情形

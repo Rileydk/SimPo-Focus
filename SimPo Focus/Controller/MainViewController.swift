@@ -96,7 +96,9 @@ class MainViewController: UIViewController {
   func configureFoucusButton() {
     
     view.addSubview(focusButton)
-    focusButton.addTarget(self, action: #selector(goSetTimerVC), for: .touchUpInside)
+    focusButton.addTarget(self, action: #selector(buttonTouchUpInside), for: .touchUpInside)
+    focusButton.addTarget(self, action: #selector(changeButtonBackgroundColorWhenTouchUpInside), for: .touchDown)
+    focusButton.addTarget(self, action: #selector(changeButtonBackgroundColorWhenReleased), for: .touchUpOutside)
     
     focusButton.backgroundColor = culturedWhite
     focusButton.setTitle("Focus", for: .normal)
@@ -106,6 +108,11 @@ class MainViewController: UIViewController {
     focusButton.titleLabel?.textAlignment = .center
     focusButton.layer.cornerRadius = 5
     focusButton.layer.name = "Focus"
+    
+    focusButton.layer.shadowColor = darkCerulean.cgColor
+    focusButton.layer.shadowOffset = CGSize(width: 0.0, height: 7.0)
+    focusButton.layer.shadowOpacity = 1.0
+    focusButton.layer.shadowRadius = 0.0
     
     focusButton.translatesAutoresizingMaskIntoConstraints = false
     
@@ -120,7 +127,9 @@ class MainViewController: UIViewController {
   func configureBreakButton() {
     
     view.addSubview(breakButton)
-    breakButton.addTarget(self, action: #selector(goSetTimerVC), for: .touchUpInside)
+    breakButton.addTarget(self, action: #selector(buttonTouchUpInside), for: .touchUpInside)
+    breakButton.addTarget(self, action: #selector(changeButtonBackgroundColorWhenTouchUpInside), for: .touchDown)
+    breakButton.addTarget(self, action: #selector(changeButtonBackgroundColorWhenReleased), for: .touchUpOutside)
     
     breakButton.backgroundColor = culturedWhite
     breakButton.setTitle("Break", for: .normal)
@@ -130,6 +139,11 @@ class MainViewController: UIViewController {
     breakButton.titleLabel?.textAlignment = .center
     breakButton.layer.cornerRadius = 5
     breakButton.layer.name = "Break"
+    
+    breakButton.layer.shadowColor = darkCerulean.cgColor
+    breakButton.layer.shadowOffset = CGSize(width: 0.0, height: 7.0)
+    breakButton.layer.shadowOpacity = 1.0
+    breakButton.layer.shadowRadius = 0.0
     
     breakButton.translatesAutoresizingMaskIntoConstraints = false
     
@@ -144,7 +158,12 @@ class MainViewController: UIViewController {
     
   }
   
-  @objc func goSetTimerVC(sender: UIButton) {
+  @objc func buttonTouchUpInside(sender: UIButton) {
+    goSetTimerVC(sender: sender)
+    changeButtonBackgroundColorWhenReleased(sender: sender)
+  }
+  
+  func goSetTimerVC(sender: UIButton) {
     let setTimerVC = SetTimerViewController()
     
     // 將所選模式和任務傳送到setTimerVC
@@ -157,6 +176,18 @@ class MainViewController: UIViewController {
     
     setTimerVC.modalPresentationStyle = .fullScreen
     self.present(setTimerVC, animated: true)
+  }
+  
+  //TODO: - 如何在點擊時將button的constraints移動相對距離？
+  @objc func changeButtonBackgroundColorWhenTouchUpInside(sender: UIButton) {
+    sender.backgroundColor = gainsboro
+    sender.layer.shadowColor = spaceCadet.cgColor
+    
+  }
+  
+  @objc func changeButtonBackgroundColorWhenReleased(sender: UIButton) {
+    sender.backgroundColor = culturedWhite
+    sender.layer.shadowColor = darkCerulean.cgColor
   }
 
 }
