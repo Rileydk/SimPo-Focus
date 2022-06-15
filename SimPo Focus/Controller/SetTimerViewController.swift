@@ -12,7 +12,6 @@ let breakLimit = 35
 
 class SetTimerViewController: UIViewController {
   
-//  var state = ""
   enum stateMode: String {
     case focusMode = "Focus"
     case breakMode = "Break"
