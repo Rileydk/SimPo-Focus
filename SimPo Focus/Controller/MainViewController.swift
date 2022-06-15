@@ -146,7 +146,6 @@ class MainViewController: UIViewController {
     
   }
   
-  //TODO: - make it full screen
   @objc func goSetTimerVC(sender: UIButton) {
     let setTimerVC = SetTimerViewController()
     
