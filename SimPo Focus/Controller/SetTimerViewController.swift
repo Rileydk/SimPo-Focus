@@ -12,7 +12,12 @@ let breakLimit = 35
 
 class SetTimerViewController: UIViewController {
   
-  var state = ""
+//  var state = ""
+  enum stateMode: String {
+    case focusMode = "Focus"
+    case breakMode = "Break"
+  }
+  var state: stateMode = .focusMode
   var task = ""
   var timeSet = 0
   
@@ -45,8 +50,8 @@ class SetTimerViewController: UIViewController {
   func configureStateLabel() {
     view.addSubview(stateLabel)
     
-    stateLabel.text = state
-    stateLabel.accessibilityLabel = "\(state) Mode"
+    stateLabel.text = state.rawValue
+    stateLabel.accessibilityLabel = "\(state.rawValue) Mode"
     stateLabel.font = .boldSystemFont(ofSize: 46)
     stateLabel.textColor = steelBlue
     stateLabel.textAlignment = .center
@@ -78,7 +83,7 @@ class SetTimerViewController: UIViewController {
   func configureTimerTextField() {
     view.addSubview(timerTextField)
     
-    if state == "Focus" {
+    if state.rawValue == "Focus" {
       timeSet = 25
     } else {
       timeSet = 5
@@ -189,18 +194,18 @@ extension SetTimerViewController: UITextFieldDelegate {
   
   //TODO: - 如何在不改變使用者輸入時間長的前提下，當超過120分鐘，點擊空白處會要求繼續輸入，點擊返回會收起鍵盤返回？
   func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-    timeSet = Int(timerTextField.text!) ?? (state == "Focus" ? 25 : 5)
-    if (state == "Focus" && timeSet > focusLimit) || (state == "Break" && timeSet > breakLimit) {
+    timeSet = Int(timerTextField.text!) ?? (state.rawValue == "Focus" ? 25 : 5)
+    if (state.rawValue == "Focus" && timeSet > focusLimit) || (state.rawValue == "Break" && timeSet > breakLimit) {
       let alert = UIAlertController(
-        title: ( state == "Focus" ? "為了讓你有適當的休息" : "休息太長會回不來"),
-        message: "不能計時超過\(state == "Focus" ? focusLimit : breakLimit)分鐘喔！",
+        title: ( state.rawValue == "Focus" ? "為了讓你有適當的休息" : "休息太長會回不來"),
+        message: "不能計時超過\(state.rawValue == "Focus" ? focusLimit : breakLimit)分鐘喔！",
         preferredStyle: .alert)
       let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
       
       alert.addAction(okAction)
       present(alert, animated: true, completion: nil)
       
-      timerTextField.text = String(state == "Focus" ? focusLimit : breakLimit)
+      timerTextField.text = String(state.rawValue == "Focus" ? focusLimit : breakLimit)
       return false
     } else {
       return true

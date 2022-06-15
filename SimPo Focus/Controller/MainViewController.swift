@@ -151,10 +151,10 @@ class MainViewController: UIViewController {
     let setTimerVC = SetTimerViewController()
     
     if sender.layer.name == "Focus" {
-      setTimerVC.state = "Focus"
+      setTimerVC.state = .focusMode
       setTimerVC.task = taskTextField.text ?? "My Task"
     } else {
-      setTimerVC.state = "Break"
+      setTimerVC.state = .breakMode
     }
     
     setTimerVC.modalPresentationStyle = .fullScreen
