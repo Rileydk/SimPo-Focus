@@ -154,6 +154,7 @@ class SetTimerViewController: UIViewController {
   }
   
   @objc func backToMainVC() {
+    timerTextField.resignFirstResponder()
     self.dismiss(animated: true)
   }
 
@@ -166,9 +167,20 @@ extension SetTimerViewController: UITextFieldDelegate {
     return true
   }
   
+  //TODO: - 如何在不改變使用者輸入時間長的前提下，當超過120分鐘，點擊空白處會要求繼續輸入，點擊返回會收起鍵盤返回？
   func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
     timeSet = Int(timerTextField.text!) ?? (state == "Focus" ? 25 : 5)
-    return true
+    if timeSet > 120 {
+      let alert = UIAlertController(title: (state == "Focus" ? "為了讓你有適當的休息" : "休息太長會回不來"), message: "不能計時超過120分鐘喔！", preferredStyle: .alert)
+      let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+      alert.addAction(okAction)
+      present(alert, animated: true, completion: nil)
+      
+      timerTextField.text = state == "Focus" ? "25" : "5"
+      return false
+    } else {
+      return true
+    }
   }
   
   func textFieldDidEndEditing(_ textField: UITextField) {
