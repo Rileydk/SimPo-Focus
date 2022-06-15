@@ -161,6 +161,7 @@ class MainViewController: UIViewController {
       setTimerVC.state = "Break"
     }
     
+    setTimerVC.modalPresentationStyle = .fullScreen
     self.present(setTimerVC, animated: true)
   }
 

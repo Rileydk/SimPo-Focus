@@ -13,10 +13,10 @@ class SetTimerViewController: UIViewController {
   var task = ""
   var timeSet = 0
   
-  var stateLabel = UILabel()
-  var taskLabel = UILabel()
-  var timerTextField = UITextField()
-  var startButton = UIButton()
+  let stateLabel = UILabel()
+  let taskLabel = UILabel()
+  let timerTextField = UITextField()
+  let startButton = UIButton()
 
   override func viewDidLoad() {
     super.viewDidLoad()
