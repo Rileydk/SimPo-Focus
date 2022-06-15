@@ -5,7 +5,7 @@
 //  Created by Riley Lai on 2022/6/13.
 //
 
-//TODO: - 開始計時後，背景變色，TextField不再接受輸入，Back和Start鍵消失，Stop和Pause鍵出現
+//TODO: - 開始計時後，TextField不再接受輸入，Back和Start鍵消失，Stop和Pause鍵出現
 //TODO: - 點擊Pause，暫停計時，Pause按鈕變為Continue。
 //TODO: - 點擊Stop，暫停計時，跳出alert，若選擇Cancel，關閉提醒，進入暫停模式；點擊Confirm，結束計時，回到Main。
 //TODO: - 點擊Continue，繼續計時。
@@ -111,7 +111,7 @@ class SetTimerViewController: UIViewController {
   //TODO: - 陰影效果、按壓時顏色加深
   func configureStartButton() {
     view.addSubview(startButton)
-    startButton.addTarget(self, action: #selector(startCountdown), for: .touchUpInside)
+    startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
     startButton.addTarget(self, action: #selector(changeButtonBackgroundColorWhenTouchUpInside), for: .touchDown)
     startButton.addTarget(self, action: #selector(changeButtonBackgroundColorWhenReleased), for: .touchUpOutside)
     
@@ -193,7 +193,23 @@ class SetTimerViewController: UIViewController {
     }
   }
   
-  @objc func startCountdown() {
+  @objc func startButtonPressed() {
+    startCountdown()
+    changeView()
+  }
+  
+  func changeView() {
+    // 開始計時後不可再修改時數
+    timerTextField.isEnabled = false
+    
+    // 注意UIViewPropertyAnimator只能用於iOS 10以上版本
+    UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.2, delay: 0) {
+      self.backButton.alpha = 0
+      self.startButton.alpha = 0
+    }
+  }
+  
+  func startCountdown() {
     var totalSecLeft = totalSec
     
     //FIXME: - 好像會慢1~2秒才開始？這是正常的嗎？
