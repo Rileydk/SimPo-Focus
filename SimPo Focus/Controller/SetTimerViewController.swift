@@ -17,6 +17,7 @@ class SetTimerViewController: UIViewController {
   let taskLabel = UILabel()
   let timerTextField = UITextField()
   let startButton = UIButton()
+  let backButton = UIButton()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,6 +34,7 @@ class SetTimerViewController: UIViewController {
     configureTaskLabel()
     configureTimerTextField()
     configureStartButton()
+    configureBackButton()
   }
     
   func configureStateLabel() {
@@ -114,6 +116,30 @@ class SetTimerViewController: UIViewController {
     ])
   }
   
+  func configureBackButton() {
+    
+    view.addSubview(backButton)
+    backButton.addTarget(self, action: #selector(backToMainVC), for: .touchUpInside)
+    
+    if #available(iOS 13.0, *) {
+      let smallConfiguration = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 36))
+      let backSymbol = UIImage(systemName: "chevron.backward.circle", withConfiguration: smallConfiguration)
+      backButton.setImage(backSymbol, for: .normal)
+    } else {
+      backButton.setTitle("Back", for: .normal)
+      backButton.titleLabel?.font = .systemFont(ofSize: 36)
+      backButton.titleLabel?.textAlignment = .left
+    }
+    backButton.tintColor = opaqueSteelBlue
+    
+    backButton.translatesAutoresizingMaskIntoConstraints = false
+    
+    NSLayoutConstraint.activate([
+      backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
+      backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30)
+    ])
+  }
+  
   func unitDigitAdjusted() -> String {
     if (timeSet != 10) && (timeSet / 10 == 0) {
       return "0\(timeSet):00"
@@ -124,6 +150,10 @@ class SetTimerViewController: UIViewController {
   
   @objc func startCountdown() {
     print("Start countdown")
+  }
+  
+  @objc func backToMainVC() {
+    self.dismiss(animated: true)
   }
 
 }
