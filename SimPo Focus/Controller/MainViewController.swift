@@ -147,6 +147,7 @@ class MainViewController: UIViewController {
   @objc func goSetTimerVC(sender: UIButton) {
     let setTimerVC = SetTimerViewController()
     
+    // 將所選模式和任務傳送到setTimerVC
     if sender.layer.name == "Focus" {
       setTimerVC.state = .focusMode
       setTimerVC.task = taskTextField.text ?? "My Task"
@@ -163,19 +164,23 @@ class MainViewController: UIViewController {
 //MARK: - UITextField Delegate
 extension MainViewController: UITextFieldDelegate {
   
+  // 開始輸入時清空placeholder
   func textFieldDidBeginEditing(_ textField: UITextField) {
     taskTextField.placeholder = ""
   }
   
+  // 點擊空白處收起鍵盤
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     view.endEditing(true)
   }
   
+  // 點擊Return時收起鍵盤
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     taskTextField.resignFirstResponder()
     return true
   }
   
+  // 若未輸入，放回預設的placeholder
   func textFieldDidEndEditing(_ textField: UITextField) {
     taskTextField.placeholder =  taskTextField.text != "" ? .none : taskTextFieldPlaceholder
   }

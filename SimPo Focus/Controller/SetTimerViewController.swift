@@ -5,7 +5,7 @@
 //  Created by Riley Lai on 2022/6/13.
 //
 
-//TODO: - 開始計時後，TextField不再接受輸入，Back和Start鍵動畫消失，Stop和Pause鍵動畫出現
+//TODO: - 開始計時後，背景變色，TextField不再接受輸入，Back和Start鍵消失，Stop和Pause鍵出現
 
 import UIKit
 
@@ -198,6 +198,8 @@ extension SetTimerViewController: UITextFieldDelegate {
   //TODO: - 如何在不改變使用者輸入時間長的前提下，當超過120分鐘，點擊空白處會要求繼續輸入，點擊返回會收起鍵盤返回？
   func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
     timeSet = Int(timerTextField.text!) ?? (state == .focusMode ? 25 : 5)
+    
+    // 若輸入時數超出上限，跳出提醒、自動重設為上限，並要求繼續輸入
     if (state == .focusMode && timeSet > focusLimit) || (state == .breakMode && timeSet > breakLimit) {
       let alert = UIAlertController(
         title: (state == .focusMode ? "為了讓你有適當的休息" : "休息太長會回不來"),
