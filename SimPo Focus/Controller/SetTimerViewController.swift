@@ -5,10 +5,13 @@
 //  Created by Riley Lai on 2022/6/13.
 //
 
-//TODO: - 開始計時後，Stop和Pause鍵出現
-//TODO: - 點擊Pause，暫停計時，Pause按鈕變為Continue。
 //TODO: - 點擊Stop，暫停計時，跳出alert，若選擇Cancel，關閉提醒，進入暫停模式；點擊Confirm，結束計時，回到Main。
 //TODO: - 點擊Continue，繼續計時。
+
+//MARK: - Next
+//TODO: - 通知
+//TODO: - 震動
+//TODO: - 鈴聲
 
 import UIKit
 
@@ -25,6 +28,7 @@ class SetTimerViewController: UIViewController {
   var task = ""
   var timeSet = 0
   var totalSec: Int { timeSet * 60 }
+  var timer = Timer()
   
   let stackView = UIStackView()
   let stateLabel = UILabel()
@@ -277,7 +281,7 @@ class SetTimerViewController: UIViewController {
     var totalSecLeft = totalSec
     
     //FIXME: - 好像會慢1~2秒才開始？這是正常的嗎？
-    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { Timer in
+    timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { Timer in
       if totalSecLeft >= 0 {
         // 處理0或個位數的情形
         let minLeftLabel = self.unitDigitAdjusted(time: totalSecLeft / 60)
@@ -286,7 +290,7 @@ class SetTimerViewController: UIViewController {
         self.timerTextField.text = "\(minLeftLabel):\(secLeftLabel)"
         totalSecLeft -= 1
       } else {
-        Timer.invalidate()
+        self.timer.invalidate()
       }
     }
   }
@@ -296,7 +300,26 @@ class SetTimerViewController: UIViewController {
   }
   
   @objc func pauseCountdown() {
-    print("pause countdown")
+    timer.invalidate()
+    changePauseButtonToContinueButton()
+  }
+  
+  func changePauseButtonToContinueButton() {
+    pauseButton.removeTarget(self, action: #selector(pauseCountdown), for: .touchUpInside)
+    
+    if #available(iOS 13.0, *) {
+      let configuration = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 44))
+      let continueSymbol = UIImage(systemName: "play.circle", withConfiguration: configuration)
+      pauseButton.setImage(continueSymbol, for: .normal)
+      pauseButton.tintColor = steelBlue
+    } else {
+      pauseButton.setTitle("Continue", for: .normal)
+      pauseButton.titleLabel?.font = .systemFont(ofSize: 28)
+      pauseButton.titleLabel?.textAlignment = .center
+      pauseButton.setTitleColor(opaqueSteelBlue, for: .normal)
+    }
+    
+//    pauseButton.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
   }
   
   //FIXME: - 目前在輸入時數超過上限的情況下，點返回鍵會先關閉視窗再關閉鍵盤，輸入未達上限的時候似乎不會有這情形
