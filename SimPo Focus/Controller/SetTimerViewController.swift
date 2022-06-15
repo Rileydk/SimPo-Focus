@@ -21,6 +21,8 @@ class SetTimerViewController: UIViewController {
   let timerTextField = UITextField()
   let startButton = UIButton()
   let backButton = UIButton()
+  
+  var timerBrain = TimerBrain()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -153,7 +155,8 @@ class SetTimerViewController: UIViewController {
   }
   
   @objc func startCountdown() {
-    print("Start countdown")
+    timerBrain.min = timeSet
+    timerBrain.startTimer()
   }
   
   @objc func backToMainVC() {
@@ -174,8 +177,12 @@ extension SetTimerViewController: UITextFieldDelegate {
   func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
     timeSet = Int(timerTextField.text!) ?? (state == "Focus" ? 25 : 5)
     if (state == "Focus" && timeSet > focusLimit) || (state == "Break" && timeSet > breakLimit) {
-      let alert = UIAlertController(title: ( state == "Focus" ? "為了讓你有適當的休息" : "休息太長會回不來"), message: "不能計時超過\(state == "Focus" ? focusLimit : breakLimit)分鐘喔！", preferredStyle: .alert)
+      let alert = UIAlertController(
+        title: ( state == "Focus" ? "為了讓你有適當的休息" : "休息太長會回不來"),
+        message: "不能計時超過\(state == "Focus" ? focusLimit : breakLimit)分鐘喔！",
+        preferredStyle: .alert)
       let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+      
       alert.addAction(okAction)
       present(alert, animated: true, completion: nil)
       

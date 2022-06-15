@@ -13,7 +13,7 @@
 		BF3BE33B28507F3C00FE770D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3BE33A28507F3C00FE770D /* MainViewController.swift */; };
 		BF3BE34028507F3D00FE770D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF3BE33F28507F3D00FE770D /* Assets.xcassets */; };
 		BF3BE34328507F3D00FE770D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3BE34128507F3D00FE770D /* LaunchScreen.storyboard */; };
-		BF3BE34B2850995400FE770D /* TimeBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3BE34A2850995400FE770D /* TimeBrain.swift */; };
+		BF3BE34B2850995400FE770D /* TimerBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3BE34A2850995400FE770D /* TimerBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		BF3BE33F28507F3D00FE770D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF3BE34228507F3D00FE770D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF3BE34428507F3D00FE770D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF3BE34A2850995400FE770D /* TimeBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBrain.swift; sourceTree = "<group>"; };
+		BF3BE34A2850995400FE770D /* TimerBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 		BF3BE34C2850996300FE770D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BF3BE34A2850995400FE770D /* TimeBrain.swift */,
+				BF3BE34A2850995400FE770D /* TimerBrain.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,7 +158,7 @@
 			files = (
 				BF2ADBF928572E9F00AEAFA5 /* SetTimerViewController.swift in Sources */,
 				BF3BE33B28507F3C00FE770D /* MainViewController.swift in Sources */,
-				BF3BE34B2850995400FE770D /* TimeBrain.swift in Sources */,
+				BF3BE34B2850995400FE770D /* TimerBrain.swift in Sources */,
 				BF3BE33728507F3C00FE770D /* AppDelegate.swift in Sources */,
 				BF3BE33928507F3C00FE770D /* SceneDelegate.swift in Sources */,
 			);

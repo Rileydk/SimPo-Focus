@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
   let focusButton = UIButton()
   let breakButton = UIButton()
   
-  var timeBrain = TimeBrain()
+  var timeBrain = TimerBrain()
   
   // Info
   let taskTextFieldPlaceholder = "Your Major Task"
@@ -41,11 +41,6 @@ class MainViewController: UIViewController {
     
     // Delegate
     taskTextField.delegate = self
-    
-    // Start countdown
-    timeBrain.min = 0
-    timeBrain.sec = 0
-    timeBrain.timer()
   }
   
   func configureBrandLabel() {
