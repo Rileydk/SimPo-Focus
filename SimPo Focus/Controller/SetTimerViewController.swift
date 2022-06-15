@@ -125,12 +125,13 @@ class SetTimerViewController: UIViewController {
       let smallConfiguration = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 36))
       let backSymbol = UIImage(systemName: "chevron.backward.circle", withConfiguration: smallConfiguration)
       backButton.setImage(backSymbol, for: .normal)
+      backButton.tintColor = opaqueSteelBlue
     } else {
       backButton.setTitle("Back", for: .normal)
-      backButton.titleLabel?.font = .systemFont(ofSize: 36)
+      backButton.titleLabel?.font = .systemFont(ofSize: 28)
       backButton.titleLabel?.textAlignment = .left
+      backButton.setTitleColor(opaqueSteelBlue, for: .normal)
     }
-    backButton.tintColor = opaqueSteelBlue
     
     backButton.translatesAutoresizingMaskIntoConstraints = false
     
