@@ -148,8 +148,6 @@ class SetTimerViewController: UIViewController {
     
     view.addSubview(backButton)
     backButton.addTarget(self, action: #selector(backToMainVC), for: .touchUpInside)
-    backButton.addTarget(self, action: #selector(changeButtonBackgroundColorWhenTouchUpInside), for: .touchDown)
-    backButton.addTarget(self, action: #selector(changeButtonBackgroundColorWhenReleased), for: .touchUpOutside)
     
     // SF Symbol僅適用於iOS 13以上版本
     if #available(iOS 13.0, *) {
@@ -235,21 +233,13 @@ class SetTimerViewController: UIViewController {
   
   
   @objc func changeButtonBackgroundColorWhenTouchUpInside(sender: UIButton) {
-    if sender.currentTitle == "Start" {
-      sender.backgroundColor = darkCerulean
-      sender.layer.shadowColor = romainSilver.cgColor
-    } else {
-      sender.tintColor = opaqueDarkCerulean
-    }
+    sender.backgroundColor = darkCerulean
+    sender.layer.shadowColor = romainSilver.cgColor
   }
   
   @objc func changeButtonBackgroundColorWhenReleased(sender: UIButton) {
-    if sender.currentTitle == "Start" {
-      sender.backgroundColor = steelBlue
-      sender.layer.shadowColor = coolGray.cgColor
-    } else {
-      sender.tintColor = opaqueSteelBlue
-    }
+    sender.backgroundColor = steelBlue
+    sender.layer.shadowColor = coolGray.cgColor
   }
   
   // 處理剩餘時數為個位數或0的情形
