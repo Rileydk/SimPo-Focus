@@ -6,6 +6,9 @@
 //
 
 //TODO: - 開始計時後，背景變色，TextField不再接受輸入，Back和Start鍵消失，Stop和Pause鍵出現
+//TODO: - 點擊Pause，暫停計時，Pause按鈕變為Continue。
+//TODO: - 點擊Stop，暫停計時，跳出alert，若選擇Cancel，關閉提醒，進入暫停模式；點擊Confirm，結束計時，回到Main。
+//TODO: - 點擊Continue，繼續計時。
 
 import UIKit
 
