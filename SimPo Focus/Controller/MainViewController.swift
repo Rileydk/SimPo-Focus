@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
   let brandLabel = UILabel()
   let taskTextField = UITextField()
   let focusButton = UIButton()
-  let breakButton = UIButton(frame: CGRect(x: 30, y: 200, width: 50, height: 20))
+  let breakButton = UIButton()
   
   var timeBrain = TimeBrain()
   

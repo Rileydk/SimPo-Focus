@@ -25,6 +25,7 @@ class SetTimerViewController: UIViewController {
     timerTextField.delegate = self
     
     // View
+    //TODO: - add SF Symbols to increase or decrease 5 min at a time
     //TODO: - add a custom Switch for Input and Output
     //TODO: - add a circular UISlider
     self.view.backgroundColor = culturedWhite
