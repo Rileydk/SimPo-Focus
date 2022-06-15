@@ -199,7 +199,7 @@ class SetTimerViewController: UIViewController {
     } else {
       stopButton.setTitle("Stop", for: .normal)
       stopButton.titleLabel?.font = .systemFont(ofSize: 28)
-      stopButton.titleLabel?.textAlignment = .left
+      stopButton.titleLabel?.textAlignment = .center
       stopButton.setTitleColor(opaqueSteelBlue, for: .normal)
     }
     
@@ -220,9 +220,9 @@ class SetTimerViewController: UIViewController {
       pauseButton.setImage(pauseSymbol, for: .normal)
       pauseButton.tintColor = steelBlue
     } else {
-      pauseButton.setTitle("Stop", for: .normal)
+      pauseButton.setTitle("Pause", for: .normal)
       pauseButton.titleLabel?.font = .systemFont(ofSize: 28)
-      pauseButton.titleLabel?.textAlignment = .left
+      pauseButton.titleLabel?.textAlignment = .center
       pauseButton.setTitleColor(opaqueSteelBlue, for: .normal)
     }
     
