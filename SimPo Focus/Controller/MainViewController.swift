@@ -24,8 +24,6 @@ class MainViewController: UIViewController {
   let focusButton = UIButton()
   let breakButton = UIButton()
   
-  var timeBrain = TimerBrain()
-  
   // Info
   let taskTextFieldPlaceholder = "Your Major Task"
 
