@@ -5,6 +5,8 @@
 //  Created by Riley Lai on 2022/6/13.
 //
 
+//TODO: - 開始計時後，TextField不再接受輸入，Back和Start鍵動畫消失，Stop和Pause鍵動畫出現
+
 import UIKit
 
 let focusLimit = 120
@@ -174,14 +176,13 @@ class SetTimerViewController: UIViewController {
         self.timerTextField.text = "\(minLeftLabel):\(secLeftLabel)"
         totalSecLeft -= 1
       } else {
-        print("end countdown")
         Timer.invalidate()
       }
     }
   }
   
+  //FIXME: - 目前在輸入時數超過上限的情況下，點返回鍵會先關閉視窗再關閉鍵盤，輸入未達上限的時候似乎不會有這情形
   @objc func backToMainVC() {
-    timerTextField.resignFirstResponder()
     self.dismiss(animated: true)
   }
 
