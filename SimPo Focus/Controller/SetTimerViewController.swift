@@ -145,7 +145,6 @@ class SetTimerViewController: UIViewController {
   }
   
   func configureBackButton() {
-    
     view.addSubview(backButton)
     backButton.addTarget(self, action: #selector(backToMainVC), for: .touchUpInside)
     
@@ -189,8 +188,8 @@ class SetTimerViewController: UIViewController {
   }
   
   func configureStopButton() {
-//    stopButton.isHidden = true
-//    stopButton.isEnabled = false
+    stopButton.alpha = 0
+    stopButton.addTarget(self, action: #selector(stopCountdown), for: .touchUpInside)
     
     if #available(iOS 13.0, *) {
       let configuration = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 44))
@@ -212,6 +211,9 @@ class SetTimerViewController: UIViewController {
   }
   
   func configurePauseButton() {
+    pauseButton.alpha = 0
+    pauseButton.addTarget(self, action: #selector(pauseCountdown), for: .touchUpInside)
+    
     if #available(iOS 13.0, *) {
       let configuration = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 44))
       let pauseSymbol = UIImage(systemName: "pause.circle", withConfiguration: configuration)
@@ -259,11 +261,15 @@ class SetTimerViewController: UIViewController {
   func changeView() {
     // 開始計時後不可再修改時數
     timerTextField.isEnabled = false
+    view.bringSubviewToFront(stackView)
     
     // 注意UIViewPropertyAnimator只能用於iOS 10以上版本
     UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.2, delay: 0) {
       self.backButton.alpha = 0
       self.startButton.alpha = 0
+      
+      self.stopButton.alpha = 1
+      self.pauseButton.alpha = 1
     }
   }
   
@@ -283,6 +289,14 @@ class SetTimerViewController: UIViewController {
         Timer.invalidate()
       }
     }
+  }
+  
+  @objc func stopCountdown() {
+    print("stop countdown")
+  }
+  
+  @objc func pauseCountdown() {
+    print("pause countdown")
   }
   
   //FIXME: - 目前在輸入時數超過上限的情況下，點返回鍵會先關閉視窗再關閉鍵盤，輸入未達上限的時候似乎不會有這情形
