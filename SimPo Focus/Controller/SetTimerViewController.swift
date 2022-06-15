@@ -22,7 +22,7 @@ class SetTimerViewController: UIViewController {
   let startButton = UIButton()
   let backButton = UIButton()
   
-  var timerBrain = TimerBrain()
+  var totalSec: Int { timeSet * 60 }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -83,7 +83,7 @@ class SetTimerViewController: UIViewController {
     } else {
       timeSet = 5
     }
-    timerTextField.text = unitDigitAdjusted()
+    timerTextField.text = "\(unitDigitAdjusted(time: timeSet)):00"
     timerTextField.textColor = steelBlue
     timerTextField.font = .systemFont(ofSize: 42)
     timerTextField.textAlignment = .center
@@ -146,17 +146,31 @@ class SetTimerViewController: UIViewController {
     ])
   }
   
-  func unitDigitAdjusted() -> String {
-    if (timeSet != 10) && (timeSet / 10 == 0) {
-      return "0\(timeSet):00"
+  // 處理剩餘時數為個位數或0的情形
+  func unitDigitAdjusted(time: Int) -> String {
+    if time != 0 {
+      return time / 10 == 0 ? "0\(time)" : "\(time)"
     } else {
-      return "\(timeSet):00"
+      return "00"
     }
   }
   
   @objc func startCountdown() {
-    timerBrain.min = timeSet
-    timerBrain.startTimer()
+    var totalSecLeft = totalSec
+    
+    //FIXME: - 好像會慢1~2秒才開始？這是正常的嗎？
+    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { Timer in
+      if totalSecLeft >= 0 {
+        let minLeftLabel = self.unitDigitAdjusted(time: totalSecLeft / 60)
+        let secLeftLabel = self.unitDigitAdjusted(time: totalSecLeft % 60)
+        
+        self.timerTextField.text = "\(minLeftLabel):\(secLeftLabel)"
+        totalSecLeft -= 1
+      } else {
+        print("end countdown")
+        Timer.invalidate()
+      }
+    }
   }
   
   @objc func backToMainVC() {
@@ -194,7 +208,7 @@ extension SetTimerViewController: UITextFieldDelegate {
   }
   
   func textFieldDidEndEditing(_ textField: UITextField) {
-    timerTextField.text = unitDigitAdjusted()
+    timerTextField.text = "\(unitDigitAdjusted(time: timeSet)):00"
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

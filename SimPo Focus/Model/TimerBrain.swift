@@ -12,7 +12,7 @@ struct TimerBrain {
   var sec = 0
   var totalSec: Int { self.min * 60 + self.sec }
   
-  func startTimer() {
+  mutating func startTimer() {
     var secLeft = totalSec
     
     print("Set timer from \(min) minutes \(sec) seconds.")
