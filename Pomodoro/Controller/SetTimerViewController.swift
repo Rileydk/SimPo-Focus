@@ -5,10 +5,9 @@
 //  Created by Riley Lai on 2022/6/13.
 //
 
+//TODO: - 幫專案改名
 //TODO: - 點擊Stop，暫停計時，跳出alert，若選擇Cancel，關閉提醒，進入暫停模式；點擊Confirm，結束計時，回到Main。
 //TODO: - 點擊Continue，繼續計時。
-
-//MARK: - Next
 //TODO: - 通知
 //TODO: - 震動
 //TODO: - 鈴聲

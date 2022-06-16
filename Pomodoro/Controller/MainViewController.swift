@@ -37,7 +37,7 @@ class MainViewController: UIViewController {
   func configureBrandLabel() {
     view.addSubview(brandLabel)
     
-    brandLabel.text = "SimPo Focus"
+    brandLabel.text = "Pomodoro"
     brandLabel.textColor = culturedWhite
     brandLabel.font = .systemFont(ofSize: 28)
     brandLabel.textAlignment = .center

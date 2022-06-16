@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		BF2ADBF828572E9F00AEAFA5 /* SetTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewController.swift; sourceTree = "<group>"; };
 		BF2ADBFA2859CA6F00AEAFA5 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
-		BF3BE33328507F3C00FE770D /* SimPo Focus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SimPo Focus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF3BE33328507F3C00FE770D /* Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3BE33628507F3C00FE770D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF3BE33828507F3C00FE770D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BF3BE33A28507F3C00FE770D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		BF3BE32A28507F3C00FE770D = {
 			isa = PBXGroup;
 			children = (
-				BF3BE33528507F3C00FE770D /* SimPo Focus */,
+				BF3BE33528507F3C00FE770D /* Pomodoro */,
 				BF3BE33428507F3C00FE770D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,12 +50,12 @@
 		BF3BE33428507F3C00FE770D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BF3BE33328507F3C00FE770D /* SimPo Focus.app */,
+				BF3BE33328507F3C00FE770D /* Pomodoro.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BF3BE33528507F3C00FE770D /* SimPo Focus */ = {
+		BF3BE33528507F3C00FE770D /* Pomodoro */ = {
 			isa = PBXGroup;
 			children = (
 				BF3BE33628507F3C00FE770D /* AppDelegate.swift */,
@@ -66,7 +66,7 @@
 				BF3BE34128507F3D00FE770D /* LaunchScreen.storyboard */,
 				BF3BE34428507F3D00FE770D /* Info.plist */,
 			);
-			path = "SimPo Focus";
+			path = Pomodoro;
 			sourceTree = "<group>";
 		};
 		BF3BE34E2850998B00FE770D /* Controller */ = {
@@ -81,9 +81,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BF3BE33228507F3C00FE770D /* SimPo Focus */ = {
+		BF3BE33228507F3C00FE770D /* Pomodoro */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BF3BE34728507F3D00FE770D /* Build configuration list for PBXNativeTarget "SimPo Focus" */;
+			buildConfigurationList = BF3BE34728507F3D00FE770D /* Build configuration list for PBXNativeTarget "Pomodoro" */;
 			buildPhases = (
 				BF3BE32F28507F3C00FE770D /* Sources */,
 				BF3BE33028507F3C00FE770D /* Frameworks */,
@@ -93,9 +93,9 @@
 			);
 			dependencies = (
 			);
-			name = "SimPo Focus";
+			name = Pomodoro;
 			productName = "SimPo Focus";
-			productReference = BF3BE33328507F3C00FE770D /* SimPo Focus.app */;
+			productReference = BF3BE33328507F3C00FE770D /* Pomodoro.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -113,7 +113,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BF3BE32E28507F3C00FE770D /* Build configuration list for PBXProject "SimPo Focus" */;
+			buildConfigurationList = BF3BE32E28507F3C00FE770D /* Build configuration list for PBXProject "Pomodoro" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -126,7 +126,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BF3BE33228507F3C00FE770D /* SimPo Focus */,
+				BF3BE33228507F3C00FE770D /* Pomodoro */,
 			);
 		};
 /* End PBXProject section */
@@ -293,8 +293,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LC7DCZXZ89;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "SimPo Focus/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "SimPo Focus";
+				INFOPLIST_FILE = Pomodoro/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Pomodoro;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -305,7 +305,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rileylai.SimPo-Focus";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rileylai.Pomodoro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -322,8 +322,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LC7DCZXZ89;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "SimPo Focus/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "SimPo Focus";
+				INFOPLIST_FILE = Pomodoro/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Pomodoro;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -334,7 +334,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rileylai.SimPo-Focus";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rileylai.Pomodoro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -345,7 +345,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BF3BE32E28507F3C00FE770D /* Build configuration list for PBXProject "SimPo Focus" */ = {
+		BF3BE32E28507F3C00FE770D /* Build configuration list for PBXProject "Pomodoro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BF3BE34528507F3D00FE770D /* Debug */,
@@ -354,7 +354,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BF3BE34728507F3D00FE770D /* Build configuration list for PBXNativeTarget "SimPo Focus" */ = {
+		BF3BE34728507F3D00FE770D /* Build configuration list for PBXNativeTarget "Pomodoro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BF3BE34828507F3D00FE770D /* Debug */,
